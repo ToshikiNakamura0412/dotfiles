@@ -3,6 +3,10 @@ setting for aliases, tmux, vim and neovim
 ## Environment
 - Unix or Linux
 - bash or zsh
+## Prerequisites
+- `tmux` should be installed
+- `vim` should be installed
+- `neovim` should be installed
 ## Installation
 ```
 cd ~
