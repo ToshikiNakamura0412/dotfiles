@@ -4,6 +4,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
+Plug 'skanehira/translate.vim'
 call plug#end()
 
 
