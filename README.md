@@ -17,5 +17,4 @@ cd ~/dotfiles
 If you use oh-my-zsh (powerlevel10k theme), you should define the following parameter (L1635):
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
 ## Vim plugin manager
-- vim-plug<br>
-https://github.com/junegunn/vim-plug.git
+vim-plug (https://github.com/junegunn/vim-plug.git)
