@@ -61,7 +61,7 @@ fi
 echo "source $SCRIPT_DIR/init.vim" > ~/.config/nvim/init.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo ">>> Done!"
+echo ">>> Done"
 
 
 echo "==="
