@@ -44,23 +44,15 @@ else
     mkdir -p -v ~/.vim/plugged
 fi
 
-if [ -d ~/.vim/colors ]; then
-    echo "~/.vim/colors exists"
-else
-    mkdir -p -v ~/.vim/colors
-fi
-
-cp -f -v $SCRIPT_DIR/colors/* ~/.vim/colors/
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if [ -d ~/.config/nvim ]; then
     echo "~/.config/nvim exists"
 else
     mkdir -p -v ~/.config/nvim
 fi
-
 echo "source $SCRIPT_DIR/init.vim" > ~/.config/nvim/init.vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo ">>> Done"
 
 

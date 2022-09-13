@@ -1,10 +1,12 @@
 " ===  プラグイン ===
 call plug#begin('~/.vim/plugged')
+Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'skanehira/translate.vim'
+Plug 'Shougo/deoplete.nvim'
 call plug#end()
 
 
@@ -29,11 +31,10 @@ set nowritebackup
 set mouse=a
 
 
-" === 表示系 ===
+" === 表示系1 ===
 " カラースキーマ
 " set t_Co=256
 colorscheme molokai
-" colorscheme tender
 " 行番号を表示
 set number
 " タイトルを表示
@@ -71,9 +72,21 @@ augroup END
 
 
 " ===  操作系 ===
-" insertモードでjjをESCとして扱う
+" [Insertモード] jjをESCとして扱う
 inoremap jj <Esc>
-" :w!! でsudoで保存可
+" [Normal] ;でコマンド入力
+noremap ; :
+" [Normal] 行頭にカーソル移動
+noremap <Space>h ^
+" [Normal] 行末にカーソル移動
+noremap <Space>l $
+" [Normal] 左のタブに移動
+noremap <C-p> :bprevious<CR>
+" [Normal] 右のタブに移動
+noremap <C-n> :bnext<CR>
+" [Normal] タブを閉じる
+noremap <C-w> :bd<CR>
+" [Normal] w!! でsudoで保存可
 cmap w!! w !sudo tee % > /dev/null
 
 
@@ -98,11 +111,13 @@ set list listchars=tab:\▸\-
 set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
-" 行頭でのTab文字の表示幅
+" 空白部分でtabキーやbackspaceを押したときにカーソル移動する幅
+set softtabstop=4
+" 自動インデントの幅
 set shiftwidth=4
 " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
-" 開行時に前の行のインデントを継続する
+" 改行時に前の行のインデントを継続する
 set autoindent
 
 
@@ -121,15 +136,35 @@ set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " nerdtree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-
-" === 文法チェック ===
 " インクルードパス
 augroup cpp-path
     autocmd!
     autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include
 augroup END
-" ALE(Asynchronous Lint Engine)
+
+
+" === プラグイン ===
+" - vim-airline
+" テーマ
+let g:airline_theme = 'google_dark'
+" powerline系フォントを利用
+let g:airline_powerline_fonts = 1
+" ステータスバーの項目を変更
+let g:airline_section_a = airline#section#create(['mode', 'crypt'])
+" bufferタブを表示
+let g:airline#extensions#tabline#enabled = 1
+" bufferタブに番号を表示
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+" ファイルパスの表示形式
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" ステータスバーにエラー情報を表示（ALEと一緒に使用）
+let g:airline#extensions#ale#enabled = 1
+
+" - deoplete
+" 有効化
+let g:deoplet#enable_at_startup = 1
+
+" - ALE(Asynchronous Lint Engine)
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_sign_colmun_always = 1
@@ -140,4 +175,3 @@ let g:ale_echo_cursor = 0
 let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 0
 let g:ale_list_window_size = 3
-let g:airline#extensions#ale#enabled = 1
