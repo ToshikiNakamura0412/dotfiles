@@ -31,7 +31,7 @@ set nowritebackup
 set mouse=a
 
 
-" === 表示系1 ===
+" === 表示系 ===
 " カラースキーマ
 " set t_Co=256
 colorscheme molokai
