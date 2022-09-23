@@ -22,6 +22,16 @@ if [ -f ~/.zshrc ]; then
 fi
 
 
+# gitconfig
+echo -n "setting git aliases... "
+if [ -f ~/.gitconfig ]; then
+    cat $SCRIPT_DIR/gitconfig >> ~/.gitconfig
+else
+    cat $SCRIPT_DIR/gitconfig > ~/.gitconfig
+fi
+echo "Done"
+
+
 # tmux
 echo -n "setting tmux... "
 echo "source $SCRIPT_DIR/tmux.conf" > ~/.tmux.conf
