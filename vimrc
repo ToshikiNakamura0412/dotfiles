@@ -167,7 +167,7 @@ let g:airline#extensions#ale#enabled = 1
 
 " - deoplete
 " 有効化
-let g:deoplet#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " - ALE(Asynchronous Lint Engine)
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
