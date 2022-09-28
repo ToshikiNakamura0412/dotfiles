@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
-" Plug 'skanehira/translate.vim'
+Plug 'skanehira/translate.vim'
 call plug#end()
 
 
