@@ -1,12 +1,15 @@
 " ===  プラグイン ===
 call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
+Plug 'tomtom/tcomment_vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-commentary'
-Plug 'preservim/nerdtree'
-Plug 'skanehira/translate.vim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
+" Plug 'skanehira/translate.vim'
 call plug#end()
 
 

@@ -6,7 +6,7 @@ alias cbt='catkin build --this'
 
 # Set Neovim alias command
 alias vi='nvim'
-alias vim='nvim'
+# alias vim='nvim'
 
 # Set Neovim alias command
 alias xm='xmodmap ~/.Xmodmap'
