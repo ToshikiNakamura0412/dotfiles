@@ -1,7 +1,8 @@
 # Set ROS alias command
 alias cw='cd ~/catkin_ws'
 alias cs='cd ~/catkin_ws/src'
-alias cb='catkin build'
+# alias cb='catkin build'
+alias cb='catkin build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias cbt='catkin build --this'
 
 # Set Neovim alias command
