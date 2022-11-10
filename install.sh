@@ -4,6 +4,8 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 # bashrc
 if [ -f ~/.bashrc ]; then
     echo -n "setting config for bash... "
+    echo "# Set ROS Noetic" >> ~/.bashrc
+    echo "source $SCRIPT_DIR/rosconfig" >> ~/.bashrc
     echo "source $SCRIPT_DIR/aliases" > ~/.bash_aliases
     echo "# auto start tmux" >> ~/.bashrc
     echo "source $SCRIPT_DIR/auto_tmux" >> ~/.bashrc
@@ -14,6 +16,8 @@ fi
 # zshrc
 if [ -f ~/.zshrc ]; then
     echo -n "setting config for zsh... "
+    echo "# Set ROS Noetic" >> ~/.zshrc
+    echo "source $SCRIPT_DIR/rosconfig" >> ~/.zshrc
     echo "# Set aliases" >> ~/.zshrc
     echo "source $SCRIPT_DIR/aliases" >> ~/.zshrc
     echo "# auto start tmux" >> ~/.zshrc

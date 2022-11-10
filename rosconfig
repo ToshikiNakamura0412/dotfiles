@@ -1,0 +1,15 @@
+# Set ROS Noetic
+# bash
+if [ $0 = "-bash" ]; then
+    source /opt/ros/noetic/setup.bash
+    source ~/catkin_ws/devel/setup.bash
+fi
+# zsh
+if [ $0 = "-zshrc" ]; then
+    source /opt/ros/noetic/setup.zsh
+    source ~/catkin_ws/devel/setup.zsh
+fi
+# common
+export ROS_WORKSPACE=~/catkin_ws
+export ROS_PACKAGE_PATH=~/catkin_ws/src:$ROS_PACKAGE_PATH
+export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
