@@ -98,6 +98,12 @@ cmap w!! w !sudo tee % > /dev/null
 " === 編集系 ===
 " ヤンクでクリップボードにコピー
 set clipboard=unnamedplus
+if system('uname -a | grep microsoft') != ''
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif
 " 常にglobal
 set gdefault
 " 保存時に行末の空白を削除する
