@@ -10,6 +10,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
 Plug 'skanehira/translate.vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 

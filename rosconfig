@@ -1,11 +1,11 @@
 # Set ROS Noetic
 # bash
-if [ $0 = "-bash" ]; then
+if [ $0 = "bash" ]; then
     source /opt/ros/noetic/setup.bash
     source ~/catkin_ws/devel/setup.bash
 fi
 # zsh
-if [ $0 = "-zshrc" ]; then
+if [ $0 = "-zsh" ]; then
     source /opt/ros/noetic/setup.zsh
     source ~/catkin_ws/devel/setup.zsh
 fi
