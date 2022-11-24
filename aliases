@@ -6,8 +6,7 @@ alias cb='catkin build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias cbt='catkin build --this'
 
 # Set Neovim alias command
-alias vi='nvim'
-alias vim='nvim'
+alias nv='nvim'
 
 # Set Neovim alias command
 alias xm='xmodmap ~/.Xmodmap'
