@@ -157,6 +157,7 @@ let g:airline_theme = 'google_dark'
 let g:airline_powerline_fonts = 1
 " ステータスバーの項目を変更
 let g:airline_section_a = airline#section#create(['mode', 'crypt'])
+let g:airline_section_c = '%F'
 " bufferタブを表示
 let g:airline#extensions#tabline#enabled = 1
 " bufferタブに番号を表示
