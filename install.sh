@@ -71,5 +71,6 @@ echo ">>> Done"
 
 
 echo "==="
-echo "please open vim and run ':PlugInstall'"
+echo "please open Vim and run ':PlugInstall'"
+echo "please open Neovim and run ':UpdateRemotePlugins'"
 echo "==="
