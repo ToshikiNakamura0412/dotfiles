@@ -32,7 +32,7 @@ set showcmd
 " ファイルを上書きする前にバックアップを作ることを無効化
 set nowritebackup
 " マウス操作有効化
-set mouse=a
+" set mouse=a
 
 
 " === 表示系 ===
@@ -92,6 +92,8 @@ noremap <C-w> :bd<CR>
 noremap <C-p> :bprevious<CR>
 " [Normal] 右のタブに移動
 noremap <C-n> :bnext<CR>
+" [Normal] 数字をインクリメントする
+noremap <C-c> <C-a>
 " [Normal] w!! でsudoで保存可
 cmap w!! w !sudo tee % > /dev/null
 
