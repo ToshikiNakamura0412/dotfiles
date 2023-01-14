@@ -10,3 +10,7 @@ alias nv='nvim'
 
 # Set Neovim alias command
 alias xm='xmodmap ~/.Xmodmap'
+
+# Others
+alias cls='clear'
+alias logo='neofetch'
