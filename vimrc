@@ -11,6 +11,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
 Plug 'skanehira/translate.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
 call plug#end()
 
 
@@ -87,7 +88,7 @@ noremap <Space>l $
 " [Normal] 新規タブを開く
 noremap <C-t> :enew<CR>
 " [Normal] タブを閉じる
-noremap <C-w> :bd<CR>
+" noremap <C-w> :bd<CR>
 " [Normal] 左のタブに移動
 noremap <C-p> :bprevious<CR>
 " [Normal] 右のタブに移動
