@@ -1,13 +1,14 @@
 [alias]
-    a  = add
-    b  = branch
-    c  = commit
-    d  = diff
-    l  = log
-    m  = merge
-    o  = checkout
-    co = checkout
-    pl = pull
-    ps = push
-    s  = status
-    cm = commit -m
+    a   = add
+    b   = branch
+    c   = commit
+    d   = diff
+    l   = log
+    m   = merge
+    o   = checkout
+    co  = checkout
+    pl  = pull
+    ps  = push
+    psf = push -f
+    s   = status
+    cm  = commit -m
