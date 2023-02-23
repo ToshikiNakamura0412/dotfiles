@@ -6,17 +6,28 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'Shougo/deoplete.nvim'
 Plug 'skanehira/translate.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
+
+" 自動補完プラグイン
+" 必須
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+" 任意
+" c/c++用
+Plug 'zchee/deoplete-clang'
+Plug 'Shougo/neoinclude.vim'
+" vim用
+Plug 'Shougo/neco-vim'
+" python用
+Plug 'deoplete-plugins/deoplete-jedi'
 call plug#end()
 
 
 " === 基本設定系 ===
-"文字コードをUFT-8に設定
+" 文字コードをUFT-8に設定
 set encoding=utf-8
 set fenc=utf-8
 scriptencoding
@@ -72,6 +83,8 @@ augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
 augroup END
+" 補完時のpreview表示をオフ
+set completeopt=menuone
 " Windowsでパスの区切り文字をスラッシュで扱う
 " set shellslash
 
@@ -174,6 +187,10 @@ let g:airline#extensions#ale#enabled = 1
 " - deoplete
 " 有効化
 let g:deoplete#enable_at_startup = 1
+
+" deoplete-clang
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-10/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 
 " - ALE(Asynchronous Lint Engine)
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
