@@ -18,3 +18,12 @@ If you use oh-my-zsh (powerlevel10k theme), you should define the following para
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
 ## Vim plugin manager
 vim-plug (https://github.com/junegunn/vim-plug.git)
+### Setup completion
+For Neovim
+```
+# C/C++
+pip3 install --upgrade neovim
+sudo apt install clang
+# Python
+pip3 install jedi
+```
