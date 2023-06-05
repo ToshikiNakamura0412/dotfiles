@@ -1,8 +1,10 @@
 # dotfiles
 Setting for aliases, tmux, vim and neovim
 ## Environment
-- Unix or Linux
+- Ubuntu
 - bash or zsh
+- (For mac)
+  - branch: `mac`
 ## Prerequisites
 - `tmux` should be installed
 - `vim` should be installed
