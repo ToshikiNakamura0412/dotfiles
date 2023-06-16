@@ -83,10 +83,16 @@ augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
 augroup END
-" 補完時のpreview表示をオフ
-set completeopt=menuone
+" menuone: 補完候補が一つしかなくてもポップアップメニューを表示
+set completeopt=menuone,noinsert
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+" 補完候補の選択をTab/Shitf-Tabで変更
+inoremap <expr><Tab>  pumvisible() ? "<C-n>" : "<Tab>"
+inoremap <expr><S-Tab>  pumvisible() ? "<C-p>" : "<S-Tab>"
+" ポップアップメニューの最大高さ
+set pumheight=10
 " Windowsでパスの区切り文字をスラッシュで扱う
-" set shellslash
 
 
 " ===  操作系 ===
