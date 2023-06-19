@@ -102,8 +102,10 @@ inoremap jj <Esc>
 noremap ; :
 " [Normal] 行頭にカーソル移動
 noremap <Space>h ^
+noremap <Space><Left> ^
 " [Normal] 行末にカーソル移動
 noremap <Space>l $
+noremap <Space><Right> $
 " [Normal] 新規タブを開く
 noremap <C-t> :enew<CR>
 " [Normal] タブを閉じる
