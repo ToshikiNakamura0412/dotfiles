@@ -44,7 +44,7 @@ set showcmd
 " ファイルを上書きする前にバックアップを作ることを無効化
 set nowritebackup
 " マウス操作有効化
-" set mouse=a
+set mouse=a
 
 
 " === 表示系 ===
