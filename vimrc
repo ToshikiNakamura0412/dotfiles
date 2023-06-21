@@ -106,6 +106,10 @@ noremap <Space><Left> ^
 " [Normal] 行末にカーソル移動
 noremap <Space>l $
 noremap <Space><Right> $
+" [Normal] ページスクロール(上)
+noremap <C-Up> <C-u>
+" [Normal] ページスクロール(下)
+noremap <C-Down> <C-d>
 " [Normal] 新規タブを開く
 noremap <C-t> :enew<CR>
 " [Normal] タブを閉じる
