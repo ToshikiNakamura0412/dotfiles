@@ -2,7 +2,7 @@
 if [ $SHLVL = 1 ]; then
     tmux_count=$(ps -ax | grep '[t]mux' | wc -l)
     if [ $tmux_count -eq 0 ]; then
-        tmux new-session
+        tmuxj
     elif [ $tmux_count ]; then
         tmux a
     fi
