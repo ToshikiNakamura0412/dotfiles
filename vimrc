@@ -103,6 +103,8 @@ set termguicolors
 " ===  操作系 ===
 " [Insertモード] jjをESCとして扱う
 inoremap jj <Esc>
+" [Insertモード] 行途中で次の行に新規挿入
+inoremap <C-o> <C-o>o
 " [Normal] ;でコマンド入力
 noremap ; :
 " 行をまたいで移動
