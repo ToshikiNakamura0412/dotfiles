@@ -39,7 +39,7 @@ echo "Done"
 # tmux
 echo -n "setting tmux... "
 echo "source $SCRIPT_DIR/tmux.conf" > ~/.tmux.conf
-echo "source $SCRIPT_DIR/tmux.session.conf" > ~/.tmux.session.conf
+echo "source-file $SCRIPT_DIR/tmux.session.conf" > ~/.tmux.session.conf
 echo "Done"
 
 
