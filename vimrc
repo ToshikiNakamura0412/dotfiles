@@ -2,13 +2,16 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
 Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'skanehira/translate.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
+Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-highlightedyank'
 
 " 自動補完プラグイン
 " 必須
