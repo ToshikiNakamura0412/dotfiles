@@ -95,10 +95,8 @@ inoremap <expr><Tab>  pumvisible() ? "<C-n>" : "<Tab>"
 inoremap <expr><S-Tab>  pumvisible() ? "<C-p>" : "<S-Tab>"
 " ポップアップメニューの最大高さ
 set pumheight=10
-" これがないとポップアップメニューを透過するようにしたときに変になる
+" シンタックスハイライト
 set termguicolors
-" ポップアップメニューの透過率
-set pumblend=40
 " Windowsでパスの区切り文字をスラッシュで扱う
 
 
