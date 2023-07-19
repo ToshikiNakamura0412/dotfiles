@@ -8,6 +8,9 @@ alias cbt='catkin build --this'
 # Set Neovim alias command
 alias nv='nvim'
 
+# Set tmux alias command
+alias tmuxj='tmux new-session \; source-file ~/.tmux.session.conf'
+
 # Others
 alias cls='clear'
 alias logo='neofetch'
