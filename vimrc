@@ -27,11 +27,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'previm/previm'
 
 " 自動補完プラグイン
-" 必須
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-" 任意
 Plug 'Shougo/neco-vim' " Vim
 call plug#end()
 " coc.nvim 拡張機能(Bash, Python, CMake, C/C++/Objective-C, Json)
