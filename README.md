@@ -1,5 +1,5 @@
 # dotfiles
-Setting for aliases, tmux, vim and neovim
+Setting for aliases, vim, neovim and tmux
 ## Environment
 - Ubuntu
 - bash or zsh
@@ -22,13 +22,10 @@ If you use oh-my-zsh (powerlevel10k theme), you should define the following para
 ## Vim plugin manager
 vim-plug (https://github.com/junegunn/vim-plug.git)
 ### Setup coc
-for bash
 ```
-curl -sL install-node.vercel.app/lts | sudo bash
-```
-for zsh
-```
-curl -sL install-node.vercel.app/lts | sudo zsh
+sudo apt install nodejs npm
+sudo npm install -g n
+sudo n stable
 ```
 ### Setup coc extensions
 ```
@@ -41,4 +38,11 @@ pip3 install jedi-language-server
 Please set executable.command path for `jedi-language-server`
 ```
 nvim ~/.config/nvim/coc-settings.json
+```
+### Upgrade Vim/NeoVim
+```
+sudo add-apt-repository ppa:jonathonf/vim
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt upgrade
 ```
