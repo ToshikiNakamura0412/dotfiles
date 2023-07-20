@@ -46,32 +46,26 @@ echo "Done"
 # vim
 echo "setting vim... "
 echo "source $SCRIPT_DIR/vimrc" > ~/.vimrc
-
 if [ -d ~/.vim/undo ]; then
     echo "~/.vim/undo exists"
 else
     mkdir -p -v ~/.vim/undo
 fi
+echo ">>> Done"
 
-if [ -d ~/.vim/plugged ]; then
-    echo "~/.vim/plugged exists"
-else
-    mkdir -p -v ~/.vim/plugged
-fi
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
+# neovim
+echo "setting neovim... "
 if [ -d ~/.config/nvim ]; then
     echo "~/.config/nvim exists"
 else
     mkdir -p -v ~/.config/nvim
 fi
 echo "source $SCRIPT_DIR/init.vim" > ~/.config/nvim/init.vim
+echo "source $SCRIPT_DIR/coc-settings.json" > ~/.config/nvim/coc-settings.json
 echo ">>> Done"
 
 
 echo "==="
-echo "please open Vim and run ':PlugInstall'"
-echo "please open Neovim and run ':UpdateRemotePlugins'"
+echo "Finish!"
 echo "==="
