@@ -235,3 +235,7 @@ inoremap <silent><expr> <TAB>
   \ <SID>check_back_space() ? "\<Tab>" :
   \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+" Hで注釈表示
+nnoremap <silent> H :<C-u>call CocAction('doHover') <cr>
+" dfでDefinition
+nmap <silent> df <Plug>(coc-definition)
