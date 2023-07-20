@@ -1,4 +1,14 @@
 " ===  プラグイン ===
+" vim-plugがなかったらインストール
+if empty(glob('~/.vim/autoload/plug.vim'))
+      silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" 足りないプラグインがあれば :PlugInstall を実行
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+" プラグイン一覧
 call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
 Plug 'tomtom/tcomment_vim'
@@ -12,26 +22,27 @@ Plug 'skanehira/translate.vim'
 Plug 'junegunn/fzf'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'previm/previm'
 
 " 自動補完プラグイン
 " 必須
-Plug 'Shougo/deoplete.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 " 任意
-" c/c++用
-Plug 'zchee/deoplete-clang'
-Plug 'Shougo/neoinclude.vim'
-" vim用
-Plug 'Shougo/neco-vim'
-" python用
-Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'Shougo/neco-vim' " Vim
 call plug#end()
+" coc.nvim 拡張機能(Bash, Python, CMake, C/C++/Objective-C, Json)
+let g:coc_global_extensions = ['coc-sh', 'coc-jedi', 'coc-cmake', 'coc-clangd', 'coc-json']
 
 
 " === 基本設定系 ===
 " 文字コードをUFT-8に設定
 set encoding=utf-8
+set modifiable
+set write
 set fenc=utf-8
 scriptencoding
 " バックアップファイルを作らない
@@ -52,7 +63,6 @@ set mouse=a
 
 " === 表示系 ===
 " カラースキーマ
-" set t_Co=256
 colorscheme molokai
 " 行番号を表示
 set number
@@ -97,12 +107,13 @@ inoremap <expr><S-Tab>  pumvisible() ? "<C-p>" : "<S-Tab>"
 set pumheight=10
 " シンタックスハイライト
 set termguicolors
-" Windowsでパスの区切り文字をスラッシュで扱う
 
 
 " ===  操作系 ===
 " [Insertモード] jjをESCとして扱う
 inoremap jj <Esc>
+" [Insertモード] 行途中で次の行に新規挿入
+inoremap <C-o> <C-o>o
 " [Normal] ;でコマンド入力
 noremap ; :
 " 行をまたいで移動
@@ -123,8 +134,6 @@ noremap <C-t> :enew<CR>
 noremap <C-p> :bprevious<CR>
 " [Normal] 右のタブに移動
 noremap <C-n> :bnext<CR>
-" [Normal] 数字をインクリメントする
-noremap <C-c> <C-a>
 " [Normal] w!! でsudoで保存可
 cmap w!! w !sudo tee % > /dev/null
 
@@ -204,25 +213,25 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 " ファイルパスの表示形式
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-" ステータスバーにエラー情報を表示（ALEと一緒に使用）
-let g:airline#extensions#ale#enabled = 1
 
-" - deoplete
-" 有効化
-let g:deoplete#enable_at_startup = 1
+" - vim_markdown
+let g:vim_markdown_folding_disabled = 1
 
-" deoplete-clang
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-10/lib/libclang.so.1'
-let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+" - previm
+let g:previm_enable_realtime = 1
+let g:previm_open_cmd = 'google-chrome'
 
-" - ALE(Asynchronous Lint Engine)
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_sign_colmun_always = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_cursor = 0
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = 0
-let g:ale_list_window_size = 3
+" - coc.nvim
+" <Tab>で候補を選択する関数
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+" 補完表示時のEnterで改行をしない
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" 補完候補の選択をTab/Shitf-Tabで変更
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"

@@ -6,9 +6,10 @@ Setting for aliases, tmux, vim and neovim
 - (For mac)
   - branch: `mac`
 ## Prerequisites
-- `tmux` should be installed
-- `vim` should be installed
-- `neovim` should be installed
+Following software should be installed
+- `vim`
+- `neovim`
+- `tmux`
 ## Installation
 ```
 git clone --depth=1 https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
@@ -20,12 +21,24 @@ If you use oh-my-zsh (powerlevel10k theme), you should define the following para
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
 ## Vim plugin manager
 vim-plug (https://github.com/junegunn/vim-plug.git)
-### Setup completion
-For Neovim
+### Setup coc
+for bash
+```
+curl -sL install-node.vercel.app/lts | sudo bash
+```
+for zsh
+```
+curl -sL install-node.vercel.app/lts | sudo zsh
+```
+### Setup coc extensions
 ```
 # C/C++
 pip3 install --upgrade neovim
-sudo apt install clang
+sudo apt install clangd
 # Python
-pip3 install jedi
+pip3 install jedi-language-server
+```
+Please set executable.command path for `jedi-language-server`
+```
+nvim ~/.config/nvim/coc-settings.json
 ```
