@@ -25,6 +25,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'previm/previm'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " 自動補完プラグイン
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -32,8 +33,8 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neco-vim' " Vim
 call plug#end()
-" coc.nvim 拡張機能(Bash, Python, CMake, C/C++/Objective-C, Json)
-let g:coc_global_extensions = ['coc-sh', 'coc-jedi', 'coc-cmake', 'coc-clangd', 'coc-json']
+" coc.nvim 拡張機能(Bash, Python, CMake, Json)
+let g:coc_global_extensions = ['coc-sh', 'coc-jedi', 'coc-cmake', 'coc-json']
 
 
 " === 基本設定系 ===
