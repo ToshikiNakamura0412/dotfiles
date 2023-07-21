@@ -153,7 +153,7 @@ set gdefault
 autocmd BufWritePre * :%s/\s\+$//ge
 " ファイルを開き直してもundoできる
 if has('persistent_undo')
-  set undodir=~/.vim/undo
+  set undodir=~/.config/nvim/undo
   set undofile
 endif
 
