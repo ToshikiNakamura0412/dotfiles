@@ -1,4 +1,11 @@
 {
+    "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["cpp", "c++", "c", "cc", "objc", "objcpp"]
+        }
+    },
     "jedi": {
         "enable": true,
         "startupMessage": false,
