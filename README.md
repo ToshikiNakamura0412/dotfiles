@@ -19,30 +19,22 @@ cd ~/dotfiles
 ### zsh
 If you use oh-my-zsh (powerlevel10k theme), you should define the following parameter (L1654 in `~/.p10k.zsh`):
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
-## Vim plugin manager
-vim-plug (https://github.com/junegunn/vim-plug.git)
-### Install Node.js
+## Update
 ```
-sudo apt install nodejs npm
-sudo npm install -g n
-sudo n stable
-```
-### Setup coc extensions
-```
-# C/C++
-pip3 install --upgrade neovim
-sudo apt install clangd
-# Python
-pip3 install jedi-language-server
-```
-Please set executable.command path for `jedi-language-server`
-```
-nvim ~/.config/nvim/coc-settings.json
+cd ~/dotfiles
+./update.sh
 ```
 ### Upgrade Vim/NeoVim
 ```
-sudo add-apt-repository ppa:jonathonf/vim
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt update
-sudo apt upgrade
+git clone --depth=1 https://github.com/ToshikiNakamura0412/my_ubuntu_setup.git ~/my_ubuntu_setup
+cd ~/my_ubuntu_setup/scripts
+./upgrade_vim.sh
+./upgrade_nvim.sh
+```
+## Vim plugin manager
+vim-plug (https://github.com/junegunn/vim-plug.git)
+## Setup plugin
+Please set executable.command path for `jedi-language-server`
+```
+nvim ~/.config/nvim/coc-settings.json
 ```

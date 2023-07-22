@@ -240,6 +240,7 @@ nnoremap <silent> H :<C-u>call CocAction('doHover') <cr>
 " dfでDefinition
 nmap <silent> df <Plug>(coc-definition)
 
+" - nvim-treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'all',

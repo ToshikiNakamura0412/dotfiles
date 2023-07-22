@@ -14,7 +14,7 @@ alias tmuxj='tmux new-session \; source-file ~/.tmux.session.conf'
 alias cls='clear'
 alias logo='neofetch'
 
-# compile command for ROS completion
+# Set compile command for ROS completion
 function catkin-compile-commands-json() {
     local catkin_ws=${ROS_WORKSPACE}
     (cd "${catkin_ws}" && catkin build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1)
