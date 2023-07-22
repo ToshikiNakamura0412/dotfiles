@@ -2,13 +2,13 @@
     a   = add
     b   = branch
     c   = commit
+    cm  = commit -m
+    ca  = commit --amend -m
+    co  = checkout
     d   = diff
     l   = log
     m   = merge
-    o   = checkout
-    co  = checkout
     pl  = pull
     ps  = push
     psf = push -f
     s   = status
-    cm  = commit -m
