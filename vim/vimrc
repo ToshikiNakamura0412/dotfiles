@@ -1,15 +1,17 @@
-" ===  プラグイン ===
 " vim-plugがなかったらインストール
-if empty(glob('~/.vim/autoload/plug.vim'))
-      silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 " 足りないプラグインがあれば :PlugInstall を実行
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
+
 " プラグイン一覧
-call plug#begin('~/.vim/plugged')
+let plug_dir = has('nvim') ? '~/.local/share/nvim/plugged' : '~/.vim/plugged'
+call plug#begin(plug_dir)
 Plug 'tomasr/molokai'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
@@ -133,8 +135,6 @@ noremap <C-t> :enew<CR>
 noremap <C-p> :bprevious<CR>
 " [Normal] 右のタブに移動
 noremap <C-n> :bnext<CR>
-" [Normal] w!! でsudoで保存可
-cmap w!! w !sudo tee % > /dev/null
 
 
 " === 編集系 ===
@@ -152,8 +152,13 @@ set gdefault
 autocmd BufWritePre * :%s/\s\+$//ge
 " ファイルを開き直してもundoできる
 if has('persistent_undo')
-  set undodir=~/.vim/undo
-  set undofile
+  if has('nvim')
+    set undodir=~/.config/nvim/undo
+    set undofile
+  else
+    set undodir=~/.vim/undo
+    set undofile
+  endif
 endif
 
 
@@ -171,7 +176,8 @@ set shiftwidth=4
 " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
 " 改行時に前の行のインデントを継続する
-set autoindent " :set pasteで解除可能
+set autoindent
+" set paste
 
 
 " === 検索系 ===
@@ -189,11 +195,6 @@ set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " nerdtree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-" インクルードパス
-augroup cpp-path
-    autocmd!
-    autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include
-augroup END
 
 
 " === プラグイン ===
