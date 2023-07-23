@@ -45,5 +45,5 @@ ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
 echo ">>> Done"
 echo ""
 
-# nodejs
-cd $SCRIPT_DIR/scripts && ./upgrade_nodejs.sh
+# setup_coc_extensions
+cd $SCRIPT_DIR/scripts && ./setup_coc_extensions.sh
