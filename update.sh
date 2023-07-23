@@ -3,13 +3,13 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # shell
 echo -n "setting shell... "
-if [ -f ~/.bashrc ]; then # bashrc
+if [ -e ~/.bashrc ]; then # bashrc
     LOAD_COMMAND_COUNT=$(cat ~/.bashrc | grep dotfiles\/scripts\/load_files\.sh | wc -l)
     if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
         echo "source $SCRIPT_DIR/scripts/load_files.sh" >> ~/.bashrc
     fi
 fi
-if [ -f ~/.zshrc ]; then # zshrc
+if [ -e ~/.zshrc ]; then # zshrc
     LOAD_COMMAND_COUNT=$(cat ~/.zshrc | grep dotfiles\/scripts\/load_files\.sh | wc -l)
     if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
         echo "source $SCRIPT_DIR/scripts/load_files.sh" >> ~/.zshrc

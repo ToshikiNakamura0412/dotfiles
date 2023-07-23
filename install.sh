@@ -6,7 +6,7 @@ cd $SCRIPT_DIR && ./update.sh
 
 # gitconfig
 echo -n "setting git aliases... "
-if [ -f ~/.gitconfig ]; then
+if [ -e ~/.gitconfig ]; then
     cat $SCRIPT_DIR/gitconfig >> ~/.gitconfig
 else
     cat $SCRIPT_DIR/gitconfig > ~/.gitconfig
