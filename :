@@ -15,14 +15,14 @@ if [ -e ~/.zshrc ]; then # zshrc
         echo "source $SCRIPT_DIR/scripts/load_files.sh" >> ~/.zshrc
     fi
 fi
-echo "Done"
+echo " Done"
 echo ""
 
 # tmux
 echo -n "setting tmux... "
 ln -sf $SCRIPT_DIR/tmux/tmux.conf ~/.tmux.conf
 ln -sf $SCRIPT_DIR/tmux/tmux.session.conf ~/.tmux.session.conf
-echo "Done"
+echo ">>> Done"
 echo ""
 
 # vim

@@ -1,11 +1,8 @@
 #!/bin/sh
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-# shell, tmux, vim, neovim
-cd $SCRIPT_DIR && ./update.sh
-
-# gitconfig
-echo -n "setting git aliases... "
+# git
+echo "setting git... "
 if [ -e ~/.gitconfig ]; then
     cat $SCRIPT_DIR/gitconfig >> ~/.gitconfig
 else
@@ -14,7 +11,11 @@ fi
 echo ">>> Done"
 echo ""
 
+# shell, tmux, vim, neovim
+cd $SCRIPT_DIR && ./update.sh
 
+
+echo ""
 echo "==="
 echo "Finish!"
 echo "==="
