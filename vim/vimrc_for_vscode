@@ -1,0 +1,24 @@
+" ===  操作系 ===
+" [Insertモード] jjをESCとして扱う
+inoremap jj <Esc>
+" [Insertモード] 行途中で次の行に新規挿入
+inoremap <C-o> <C-o>o
+" [Normal] ;でコマンド入力
+noremap ; :
+" [Normal] 行頭にカーソル移動
+noremap <Space>h ^
+noremap <Space><Left> ^
+" [Normal] 行末にカーソル移動
+noremap <Space>l $
+noremap <Space><Right> $
+" [Normal] 右のタブに移動
+noremap <C-n> :bnext<CR>
+" [Normal] ESC連打でハイライト解除
+" nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+
+" (使えなさそう)
+" [Normal] 左のタブに移動
+" noremap <C-p> :bprevious<CR>
+" 行をまたいで移動
+" set whichwrap=b,s,h,l,<,>,[,],~

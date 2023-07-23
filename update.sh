@@ -32,6 +32,7 @@ if [ ! -d ~/.vim/undo ]; then
 fi
 ln -sf $SCRIPT_DIR/vim/vimrc ~/.vimrc
 ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.vim/coc-settings.json
+ln -sf $SCRIPT_DIR/vim/vimrc_for_vscode ~/.vim/vimrc_for_vscode
 echo ">>> Done"
 echo ""
 
