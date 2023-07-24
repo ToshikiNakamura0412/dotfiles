@@ -7,3 +7,5 @@ echo "========================================"
 sudo apt install nodejs npm -y
 sudo npm install -g n
 sudo n stable
+echo ">>> Done"
+echo ""

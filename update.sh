@@ -48,3 +48,9 @@ echo ""
 
 # setup_coc_extensions
 cd $SCRIPT_DIR/scripts && ./setup_coc_extensions.sh
+
+echo ""
+echo "==="
+echo "please open vim (or nvim) and run ':PlugClean'"
+echo "==="
+echo "(If you want to upgrade Vim or Neovim, please refer to README.md)"
