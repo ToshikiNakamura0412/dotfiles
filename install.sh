@@ -13,9 +13,3 @@ echo ""
 
 # shell, tmux, vim, neovim
 cd $SCRIPT_DIR && ./update.sh
-
-
-echo ""
-echo "==="
-echo "Finish!"
-echo "==="
