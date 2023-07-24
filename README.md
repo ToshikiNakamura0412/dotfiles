@@ -17,24 +17,25 @@ cd ~/dotfiles
 ./install.sh
 ```
 ### zsh
-If you use oh-my-zsh (powerlevel10k theme), you should define the following parameter (L1654 in `~/.p10k.zsh`):
+If you use oh-my-zsh (powerlevel10k theme), you should set the following parameter in `~/.p10k.zsh`
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
 ## Update
 ```
 cd ~/dotfiles
 ./update.sh
 ```
-### Upgrade Vim/NeoVim
+### Upgrade (or Install) Vim/NeoVim
 ```
 git clone --depth=1 https://github.com/ToshikiNakamura0412/my_ubuntu_setup.git ~/my_ubuntu_setup
 cd ~/my_ubuntu_setup/scripts
 ./upgrade_vim.sh
 ./upgrade_nvim.sh
 ```
-## Vim plugin manager
-vim-plug (https://github.com/junegunn/vim-plug.git)
-## Setup plugin
+## Vim plugin
+### Setup plugin
 Please set executable.command path for `jedi-language-server`
 ```
 nvim ~/.config/nvim/coc-settings.json
 ```
+### plugin manager
+vim-plug (https://github.com/junegunn/vim-plug.git)
