@@ -15,6 +15,10 @@ Following software should be installed
 git clone --depth=1 https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
+# bash
+source ~/.bashrc
+# zsh
+source ~/.zshrc
 ```
 ### Setup plugin
 Please set executable.command path for `jedi-language-server`
@@ -28,6 +32,10 @@ If you use oh-my-zsh (powerlevel10k theme), you should set the following paramet
 ```
 cd ~/dotfiles
 ./update.sh
+# bash
+source ~/.bashrc
+# zsh
+source ~/.zshrc
 ```
 ### Upgrade (or Install) Vim/NeoVim
 ```
