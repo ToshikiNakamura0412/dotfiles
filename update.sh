@@ -27,6 +27,9 @@ echo ""
 
 # vim
 echo "setting vim... "
+if [ -d ~/.vim/undo ]; then
+    rm -rf ~/.vim/undo
+fi
 if [ ! -d ~/.vim/undo ]; then
     mkdir -p -v ~/.vim/undo
 fi
@@ -43,6 +46,13 @@ if [ ! -d ~/.config/nvim ]; then
 fi
 ln -sf $SCRIPT_DIR/vim/init.vim ~/.config/nvim/init.vim
 ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
+
+if [ -d ~/.local/share/nvim ]; then
+    rm -rf ~/.local/share/nvim
+fi
+if [ -d ~/.config/nvim/undo ]; then
+    rm -rf ~/.config/nvim/undo
+fi
 echo ">>> Done"
 echo ""
 
