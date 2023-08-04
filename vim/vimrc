@@ -107,14 +107,8 @@ set termguicolors
 
 
 " ===  操作系 ===
-" [Insertモード] jjをESCとして扱う
-inoremap jj <Esc>
-" [Insertモード] 行途中で次の行に新規挿入
-inoremap <C-o> <C-o>o
 " [Normal] ;でコマンド入力
 noremap ; :
-" 行をまたいで移動
-set whichwrap=b,s,h,l,<,>,[,],~
 " [Normal] 行頭にカーソル移動
 noremap <Space>h ^
 noremap <Space><Left> ^
@@ -127,10 +121,20 @@ noremap <C-Up> <C-u>
 noremap <C-Down> <C-d>
 " [Normal] 新規タブを開く
 noremap <C-t> :enew<CR>
-" [Normal] 左のタブに移動
-noremap <C-p> :bprevious<CR>
 " [Normal] 右のタブに移動
 noremap <C-n> :bnext<CR>
+" [Normal] 左のタブに移動
+noremap <C-p> :bprevious<CR>
+" [Insertモード] jjをESCとして扱う
+inoremap jj <Esc>
+" [Insertモード] 行途中で次の行に新規挿入
+inoremap <C-o> <C-o>o
+" [Insertモード] カーソルを右に移動
+inoremap <C-f> <Right>
+" [Insertモード] カーソルを左に移動
+inoremap <C-b> <Left>
+" 行をまたいで移動
+set whichwrap=b,s,h,l,<,>,[,],~
 
 
 " === 編集系 ===
@@ -148,12 +152,9 @@ set gdefault
 autocmd BufWritePre * :%s/\s\+$//ge
 " ファイルを開き直してもundoできる
 if has('persistent_undo')
-  if has('nvim')
-    set undodir=~/.vim/undo
-    set undofile
-  endif
+  set undodir=~/.vim/undo
+  set undofile
 endif
-
 
 " === Tab系 ===
 " 不可視文字を可視化(タブが「▸-」と表示される)

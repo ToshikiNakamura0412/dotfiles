@@ -30,29 +30,31 @@ echo "setting vim... "
 if [ -d ~/.vim/undo ]; then
     rm -rf ~/.vim/undo
 fi
-if [ ! -d ~/.vim/undo ]; then
-    mkdir -p -v ~/.vim/undo
+if [ -d ~/.vim/plugged ]; then
+    rm -rf ~/.vim/plugged
 fi
+mkdir -p -v ~/.vim/undo
 ln -sf $SCRIPT_DIR/vim/vimrc ~/.vimrc
 ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.vim/coc-settings.json
-ln -sf $SCRIPT_DIR/vim/vimrc_for_vscode ~/.vim/vimrc_for_vscode
 echo ">>> Done"
 echo ""
 
 # neovim
 echo "setting neovim... "
-if [ ! -d ~/.config/nvim ]; then
-    mkdir -p -v ~/.config/nvim
-fi
-ln -sf $SCRIPT_DIR/vim/init.vim ~/.config/nvim/init.vim
-ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
-
 if [ -d ~/.local/share/nvim ]; then
     rm -rf ~/.local/share/nvim
 fi
 if [ -d ~/.config/nvim/undo ]; then
     rm -rf ~/.config/nvim/undo
 fi
+if [ -d ~/.local/share/nvim/plugged ]; then
+    rm -rf ~/.local/share/nvim/plugged
+fi
+if [ ! -d ~/.config/nvim ]; then
+    mkdir -p -v ~/.config/nvim
+fi
+ln -sf $SCRIPT_DIR/vim/init.vim ~/.config/nvim/init.vim
+ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
 echo ">>> Done"
 echo ""
 
@@ -61,6 +63,6 @@ cd $SCRIPT_DIR/scripts && ./setup_coc_extensions.sh
 
 echo ""
 echo "==="
-echo "please open vim (or nvim) and run ':PlugClean'"
+echo "Finish!!"
 echo "==="
 echo "(If you want to upgrade Vim or Neovim, please refer to README.md)"
