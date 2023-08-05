@@ -50,6 +50,9 @@ fi
 if [ -d ~/.local/share/nvim/plugged ]; then
     rm -rf ~/.local/share/nvim/plugged
 fi
+if [ -d ~/.config/coc ]; then
+    rm -rf ~/.config/coc
+fi
 if [ ! -d ~/.config/nvim ]; then
     mkdir -p -v ~/.config/nvim
 fi
