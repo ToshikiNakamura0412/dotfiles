@@ -15,9 +15,7 @@ alias cls='clear'
 alias logo='neofetch'
 
 # Set compile command for ROS completion
-function catkin-compile-commands-json() {
-    cd $ROS_WORKSPACE && catkin build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1
-
+function ln-compile-commands-json() {
     # Find compile_commands.json in build directory and create symlink to the top of the package directories.
     local package_xmls=$(find $ROS_WORKSPACE/src -name package.xml)
     for package_xml in $(echo $package_xmls); do
@@ -26,4 +24,14 @@ function catkin-compile-commands-json() {
             ln -sf $ROS_WORKSPACE/build/$package_name/compile_commands.json $(rospack find $package_name)/compile_commands.json
         fi
     done
+}
+
+function catkin-compile-commands-json() {
+    cd $ROS_WORKSPACE && catkin build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+    ln-compile-commands-json
+}
+
+function catkin-compile-commands-json-this() {
+    catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+    ln-compile-commands-json
 }
