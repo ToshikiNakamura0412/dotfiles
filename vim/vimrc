@@ -246,7 +246,7 @@ nnoremap <silent> H :<C-u>call CocAction('doHover') <cr>
 nmap <silent> df <Plug>(coc-definition)
 " rfでReferences
 nmap <silent> rf <Plug>(coc-references)
-" rnでFormat
+" rnでRename
 nmap <silent> rn <Plug>(coc-rename)
 " fmtでFormat
 nmap <silent> fmt <Plug>(coc-format)
