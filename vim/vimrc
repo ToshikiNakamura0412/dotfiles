@@ -31,8 +31,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " 自動補完プラグイン
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-" coc.nvim 拡張機能(Vim, Yaml, Bash, Json, Python, CMake)
-let g:coc_global_extensions = ['coc-vimlsp', 'coc-yaml', 'coc-sh', 'coc-json', 'coc-jedi', 'coc-cmake']
+" coc.nvim 拡張機能(Vim, Yaml, Bash, Json, Python, CMake, XML)
+let g:coc_global_extensions = ['coc-vimlsp', 'coc-yaml', 'coc-sh', 'coc-json', 'coc-jedi', 'coc-cmake', 'coc-xml']
 
 
 " === 基本設定系 ===
