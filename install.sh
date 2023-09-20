@@ -8,6 +8,10 @@ if [ -e ~/.gitconfig ]; then
 else
     cat $SCRIPT_DIR/gitconfig > ~/.gitconfig
 fi
+if [ ! -d ~/.config/git ]; then
+    mkdir -p -v ~/.config/git
+fi
+ln -sf $SCRIPT_DIR/gitignore ~/.config/git/ignore
 echo "Done"
 echo ""
 
