@@ -149,7 +149,7 @@ endif
 " 常にglobal
 set gdefault
 " 保存時に行末の空白を削除する
-autocmd BufWritePre * :%s/\s\+$//ge
+" autocmd BufWritePre * :%s/\s\+$//ge
 " ファイルを開き直してもundoできる
 if has('persistent_undo')
   if has('nvim')
