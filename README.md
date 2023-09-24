@@ -1,10 +1,8 @@
 # dotfiles
-Setting for aliases, vim, neovim and tmux
+Setting for git, aliases, vim, neovim and tmux
 ## Environment
 - Ubuntu
 - bash or zsh
-- (For mac)
-  - branch: `mac`
 ## Prerequisites
 Following software should be installed
 - `vim`
@@ -31,6 +29,8 @@ If you use oh-my-zsh (powerlevel10k theme), you should set the following paramet
 ## Update
 ```
 cd ~/dotfiles
+git checkout .
+git pull
 ./update.sh
 # bash
 source ~/.bashrc
@@ -46,3 +46,15 @@ cd ~/my_ubuntu_setup/scripts
 ```
 ## Vim plugin manager
 vim-plug (https://github.com/junegunn/vim-plug.git)
+
+## C/C++ Completion for ROS
+If you want to enable C/C++ completion for ROS, the following commands must be executed when building packages.
+```
+# build and enable completion for all packages
+cd ~/catkin_ws
+catkin-compile-commands-json
+
+# build and enable completion for one package
+cd <target package>
+catkin-compile-commands-json-this
+```
