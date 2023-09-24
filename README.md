@@ -18,6 +18,11 @@ source ~/.bashrc
 # zsh
 source ~/.zshrc
 ```
+### WSL
+Also execute the following
+```
+./scripts/setup_wsl.sh
+```
 ### Setup plugin
 Please set executable.command path for `jedi-language-server`
 ```
