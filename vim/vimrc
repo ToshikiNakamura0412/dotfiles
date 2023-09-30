@@ -69,7 +69,7 @@ set title
 set cursorline
 " 120列目を強調
 set colorcolumn=120
-highlight ColorColumn guibg=#202020 ctermbg=lightgray
+highlight ColorColumn guibg=gray ctermbg=gray
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 " ビープ音を可視化
@@ -250,3 +250,7 @@ nmap <silent> rf <Plug>(coc-references)
 nmap <silent> rn <Plug>(coc-rename)
 " fmtでFormat
 nmap <silent> fmt <Plug>(coc-format)
+" nerで次のerrorへ
+nmap <silent> ner <Plug>(coc-diagnostic-next-error)
+" perで前のerrorへ
+nmap <silent> per <Plug>(coc-diagnostic-prev-error)
