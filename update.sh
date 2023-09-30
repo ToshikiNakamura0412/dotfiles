@@ -68,6 +68,7 @@ if [ ! -d ~/.config/nvim ]; then
 fi
 ln -sf $SCRIPT_DIR/vim/init.vim ~/.config/nvim/init.vim
 ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -sf $SCRIPT_DIR/vim/clang-format ~/.clang-format
 echo ">>> Done"
 echo ""
 
