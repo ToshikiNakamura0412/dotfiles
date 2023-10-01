@@ -250,7 +250,7 @@ nmap <silent> rf <Plug>(coc-references)
 nmap <silent> rn <Plug>(coc-rename)
 " fmtでFormat
 nmap <silent> fmt <Plug>(coc-format)
-" nerで次のerrorへ
-nmap <silent> ner <Plug>(coc-diagnostic-next-error)
-" perで前のerrorへ
-nmap <silent> per <Plug>(coc-diagnostic-prev-error)
+" mneで次のerrorへ
+nmap <silent> mne <Plug>(coc-diagnostic-next-error)
+" mpeで前のerrorへ
+nmap <silent> mpe <Plug>(coc-diagnostic-prev-error)
