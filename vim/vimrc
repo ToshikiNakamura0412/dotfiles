@@ -67,8 +67,8 @@ set number
 set title
 " 現在の行を強調表示
 set cursorline
-" 120列目を強調
-set colorcolumn=120
+" 121列目を強調
+set colorcolumn=121
 highlight ColorColumn guibg=gray ctermbg=gray
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
