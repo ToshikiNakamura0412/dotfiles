@@ -127,8 +127,6 @@ noremap <C-n> :bnext<CR>
 noremap <C-p> :bprevious<CR>
 " [Insertモード] jjをESCとして扱う
 inoremap jj <Esc>
-" [Insertモード] 行途中で次の行に新規挿入
-inoremap <C-o> <C-o>o
 " [Insertモード] カーソルを右に移動
 inoremap <C-f> <Right>
 " [Insertモード] カーソルを左に移動
