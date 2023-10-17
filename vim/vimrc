@@ -31,8 +31,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " 自動補完プラグイン
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-" coc.nvim 拡張機能(Vim, Yaml, Bash, Json, Python, CMake, XML)
-let g:coc_global_extensions = ['coc-vimlsp', 'coc-yaml', 'coc-sh', 'coc-json', 'coc-jedi', 'coc-cmake', 'coc-xml']
+" coc.nvim 拡張機能(Vim, Yaml, Bash, Json, Python, CMake)
+let g:coc_global_extensions = ['coc-vimlsp', 'coc-yaml', 'coc-sh', 'coc-json', 'coc-jedi', 'coc-cmake']
 
 
 " === 基本設定系 ===
@@ -102,11 +102,11 @@ inoremap <expr><Tab>  pumvisible() ? "<C-n>" : "<Tab>"
 inoremap <expr><S-Tab>  pumvisible() ? "<C-p>" : "<S-Tab>"
 " ポップアップメニューの最大高さ
 set pumheight=10
-" シンタックスハイライト
-set termguicolors
 
 
 " ===  操作系 ===
+" 行をまたいで移動
+set whichwrap=b,s,h,l,<,>,[,],~
 " [Normal] ;でコマンド入力
 noremap ; :
 " [Normal] 行頭にカーソル移動
@@ -125,14 +125,14 @@ noremap <C-t> :enew<CR>
 noremap <C-n> :bnext<CR>
 " [Normal] 左のタブに移動
 noremap <C-p> :bprevious<CR>
-" [Insertモード] jjをESCとして扱う
+" [Insert] jjをESCとして扱う
 inoremap jj <Esc>
-" [Insertモード] カーソルを右に移動
+" [Insert] 行途中で次の行に新規挿入
+inoremap <C-o> <C-o>o
+" [Insert] カーソルを右に移動
 inoremap <C-f> <Right>
-" [Insertモード] カーソルを左に移動
+" [Insert] カーソルを左に移動
 inoremap <C-b> <Left>
-" 行をまたいで移動
-set whichwrap=b,s,h,l,<,>,[,],~
 
 
 " === 編集系 ===
