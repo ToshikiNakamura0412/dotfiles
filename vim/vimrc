@@ -85,7 +85,7 @@ set noerrorbells
 " 対応する括弧やブレースを表示
 set showmatch matchtime=1
 " シンタックスハイライト
-syntax on
+set termguicolors
 " スクロール時の余裕
 set scrolloff=20
 " 最後にカーソルがあった場所に移動
