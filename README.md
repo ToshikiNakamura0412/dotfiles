@@ -10,9 +10,9 @@ Following software should be installed
 - `tmux`
 ## Installation
 ```
-git clone --depth=1 https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-./install.sh
+git clone https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
+~/dotfiles/install.sh
+
 # bash
 source ~/.bashrc
 # zsh
@@ -21,7 +21,7 @@ source ~/.zshrc
 ### WSL
 Also execute the following
 ```
-./scripts/setup_wsl.sh
+~/dotfiles/scripts/setup_wsl.sh
 ```
 ### Setup plugin
 Please set executable.command path for `jedi-language-server`
@@ -37,6 +37,7 @@ cd ~/dotfiles
 git checkout .
 git pull
 ./update.sh
+
 # bash
 source ~/.bashrc
 # zsh
@@ -56,7 +57,7 @@ vim-plug (https://github.com/junegunn/vim-plug.git)
 If you want to enable C/C++ completion for ROS, the following commands must be executed when building packages.
 ```
 # build and enable completion for all packages
-cd ~/catkin_ws
+cd ~/<ROS workspace>
 catkin-compile-commands-json
 
 # build and enable completion for one package
