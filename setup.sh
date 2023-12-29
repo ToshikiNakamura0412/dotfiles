@@ -74,7 +74,7 @@ echo ">>> Done"
 echo ""
 
 # setup_coc_extensions
-cd $SCRIPT_DIR/scripts && ./setup_coc_extensions.sh
+cd $SCRIPT_DIR/scripts && ./setup_coc.sh
 
 echo ""
 echo "==="
