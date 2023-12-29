@@ -1,6 +1,10 @@
 #!/bin/sh
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
+echo "======="
+echo " Setup"
+echo "======="
+
 # git
 echo -n "setting git... "
 if [ ! -e ~/.gitconfig ]; then
