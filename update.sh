@@ -30,11 +30,10 @@ echo ""
 
 # tmux
 echo -n "setting tmux... "
-ln -sf $SCRIPT_DIR/tmux/tmux.conf ~/.tmux.conf
-ln -sf $SCRIPT_DIR/tmux/tmux.session.conf ~/.tmux.session.conf
 if [ -d ~/.tmux ]; then
     rm -rf ~/.tmux
 fi
+ln -sf $SCRIPT_DIR/tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/bin/install_plugins
 echo "Done"
