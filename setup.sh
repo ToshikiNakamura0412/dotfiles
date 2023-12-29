@@ -2,10 +2,20 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # git
+echo -n "setting git... "
+if [ ! -e ~/.gitconfig ]; then
+    cat $SCRIPT_DIR/scripts/gitconfig > ~/.gitconfig
+else
+    #if [  ]; then
+     #   
+    #fi
+fi
 if [ ! -d ~/.config/git ]; then
-    mkdir -p -v ~/.config/git
+   mkdir -p -v ~/.config/git
 fi
 ln -sf $SCRIPT_DIR/scripts/gitignore ~/.config/git/ignore
+echo "Done"
+echo ""
 
 # shell
 echo -n "setting shell... "
@@ -39,30 +49,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "Done"
 echo ""
 
-# vim
-echo "setting vim... "
-if [ -d ~/.vim/undo ]; then
-    rm -rf ~/.vim/undo
-fi
-if [ -d ~/.vim/plugged ]; then
-    rm -rf ~/.vim/plugged
-fi
-mkdir -p -v ~/.vim/undo
-ln -sf $SCRIPT_DIR/vim/vimrc ~/.vimrc
-ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.vim/coc-settings.json
-echo ">>> Done"
-echo ""
-
-# neovim
-echo "setting neovim... "
-if [ -d ~/.local/share/nvim ]; then
-    rm -rf ~/.local/share/nvim
+# Neovim
+echo "setting Neovim... "
+if [ -d ~/.local/share/nvim/plugged ]; then
+    rm -rf ~/.local/share/nvim/plugged
 fi
 if [ -d ~/.config/nvim/undo ]; then
     rm -rf ~/.config/nvim/undo
-fi
-if [ -d ~/.local/share/nvim/plugged ]; then
-    rm -rf ~/.local/share/nvim/plugged
 fi
 if [ -d ~/.config/coc ]; then
     rm -rf ~/.config/coc
