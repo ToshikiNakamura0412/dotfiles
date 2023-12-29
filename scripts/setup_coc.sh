@@ -19,4 +19,11 @@ echo ">>> Done"
 echo ""
 
 # Node.js
-cd $SCRIPT_DIR && ./upgrade_nodejs.sh
+echo "========================================"
+echo " nodejs will be installed and upgraded"
+echo "========================================"
+sudo apt install nodejs npm -y
+sudo npm install -g n
+sudo n stable
+echo ">>> Done"
+echo ""
