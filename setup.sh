@@ -58,10 +58,14 @@ fi
 if [ ! -d ~/.config/nvim ]; then
     mkdir -p -v ~/.config/nvim
 fi
-ln -sf $SCRIPT_DIR/vim/init.vim ~/.config/nvim/init.vim
-ln -sf $SCRIPT_DIR/vim/plugins.vim ~/.config/nvim/plugins.vim
-ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
-ln -sf $SCRIPT_DIR/vim/clang-format ~/.clang-format
+ln -sf $SCRIPT_DIR/nvim/init.vim ~/.config/nvim/init.vim
+ln -sf $SCRIPT_DIR/nvim/configs/basic-settings.vim ~/.config/nvim/basic-settings.vim
+ln -sf $SCRIPT_DIR/nvim/configs/keymap.vim ~/.config/nvim/keymap.vim
+ln -sf $SCRIPT_DIR/nvim/configs/plugin-keymap.vim ~/.config/nvim/plugin-keymap.vim
+ln -sf $SCRIPT_DIR/nvim/configs/plugin-settings.vim ~/.config/nvim/plugin-settings.vim
+ln -sf $SCRIPT_DIR/nvim/configs/plugin.vim ~/.config/nvim/plugin.vim
+ln -sf $SCRIPT_DIR/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -sf $SCRIPT_DIR/nvim/clang-format ~/.clang-format
 echo ">>> Done"
 echo ""
 
