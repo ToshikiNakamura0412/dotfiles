@@ -9,10 +9,6 @@ echo "======="
 echo -n "setting git... "
 if [ ! -e ~/.gitconfig ]; then
     cat $SCRIPT_DIR/scripts/gitconfig > ~/.gitconfig
-else
-    #if [  ]; then
-     #   
-    #fi
 fi
 if [ ! -d ~/.config/git ]; then
    mkdir -p -v ~/.config/git
@@ -58,9 +54,6 @@ echo "setting Neovim... "
 if [ -d ~/.local/share/nvim/plugged ]; then
     rm -rf ~/.local/share/nvim/plugged
 fi
-if [ -d ~/.config/nvim/undo ]; then
-    rm -rf ~/.config/nvim/undo
-fi
 if [ -d ~/.config/coc ]; then
     rm -rf ~/.config/coc
 fi
@@ -68,6 +61,7 @@ if [ ! -d ~/.config/nvim ]; then
     mkdir -p -v ~/.config/nvim
 fi
 ln -sf $SCRIPT_DIR/vim/init.vim ~/.config/nvim/init.vim
+ln -sf $SCRIPT_DIR/vim/plugins.vim ~/.config/nvim/plugins.vim
 ln -sf $SCRIPT_DIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf $SCRIPT_DIR/vim/clang-format ~/.clang-format
 echo ">>> Done"
