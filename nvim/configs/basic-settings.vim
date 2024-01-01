@@ -15,8 +15,8 @@ set virtualedit=onemore
 " 行をまたいで移動
 set whichwrap=b,s,h,l,<,>,[,],~
 
-" === 編集系 ===
-" ヤンクでクリップボードにコピー
+" === edit ===
+" Copy to clipboard
 set clipboard=unnamedplus
 " 保存時に行末の空白を削除する
 autocmd BufWritePre * :%s/\s\+$//ge

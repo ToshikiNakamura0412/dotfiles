@@ -1,5 +1,4 @@
 " === nvim-tree ===
-" nnoremap <silent><C-e> :NvimTreeOpen<CR>
 nnoremap <silent><C-e> :CocCommand explorer<CR>
 
 " === coc ===
