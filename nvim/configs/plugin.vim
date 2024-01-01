@@ -13,29 +13,30 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tomasr/molokai'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'skanehira/translate.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'skanehira/translate.vim'
 Plug 'ryanoasis/vim-devicons'
-" Plug 'luochen1990/rainbow'
-" Plug 'Yggdroot/indentLine'
-" Plug 'echasnovski/mini.indentscope'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'luochen1990/rainbow'
+Plug 'Yggdroot/indentLine'
+Plug 'echasnovski/mini.indentscope'
+Plug 'sheerun/vim-polyglot'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 let g:coc_global_extensions = [
-    \'coc-pairs',
-    \'coc-vimlsp',
-    \'coc-yaml',
-    \'coc-sh',
-    \'coc-json',
-    \'coc-jedi',
-    \'coc-cmake',
-    \'coc-snippets',
+    \'coc-lists',
     \'coc-yank',
+    \'coc-pairs',
+    \'coc-explorer',
     \'coc-webview',
     \'coc-markdown-preview-enhanced',
-    \'coc-git',
-    \'coc-lists',
-    \'coc-explorer'
+    \'coc-snippets',
+    \'coc-sh',
+    \'coc-cmake',
+    \'coc-jedi',
+    \'coc-json',
+    \'coc-yaml',
+    \'coc-vimlsp',
     \]
