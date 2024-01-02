@@ -70,10 +70,10 @@ echo ">>> Done"
 echo ""
 
 # setup_coc_extensions
-cd $SCRIPT_DIR/scripts && ./setup_coc.sh
+$SCRIPT_DIR/scripts/setup_coc.sh
 
 echo ""
 echo "==="
 echo "Finish!!"
 echo "==="
-echo "(If you want to upgrade Vim or Neovim, please refer to README.md)"
+echo "(If you want to upgrade Neovim, please refer to README.md)"
