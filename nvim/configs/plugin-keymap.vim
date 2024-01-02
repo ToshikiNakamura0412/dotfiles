@@ -1,10 +1,14 @@
 " === nvim-tree ===
-nnoremap <silent><C-e> :CocCommand explorer<CR>
+nnoremap <silent><C-e> <Cmd>NvimTreeToggle<CR>
+
+" === barbar ===
+nnoremap <silent><C-n> <Cmd>BufferNext<CR>
+nnoremap <silent><C-p> <Cmd>BufferPrevious<CR>
 
 " === coc ===
 " No line break on Enter in completion candidate display
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : '<CR>'
-" Select a candidate for completion by Tab/Shift-Tab
+" Select a candidate for completion by Tab/Shift-Tab (Up/Down)
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
