@@ -29,7 +29,6 @@ If you use oh-my-zsh (powerlevel10k theme), you should set the following paramet
 ### Upgrade (or Install) NeoVim
 ```
 git clone --depth=1 https://github.com/ToshikiNakamura0412/my_ubuntu_setup.git ~/my_ubuntu_setup
-~/my_ubuntu_setup/scripts/upgrade_vim.sh
 ~/my_ubuntu_setup/scripts/upgrade_nvim.sh
 ```
 ## Vim plugin manager
