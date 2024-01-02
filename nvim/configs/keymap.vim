@@ -1,9 +1,7 @@
 " Normal
-noremap <C-n> :bnext<CR>
-noremap <C-p> :bprevious<CR>
+noremap <Esc><Esc> <Cmd>nohlsearch<CR><Esc>
 noremap <Space>h ^
 noremap <Space>l $
-noremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " Insert
 inoremap jj <Esc>
