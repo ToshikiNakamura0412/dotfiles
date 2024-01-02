@@ -9,16 +9,15 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
-inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#pum#next(1):
-  \ <SID>check_back_space() ? '<Tab>' :
-  \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : '<S-TAB>' ' '<C-h>'
+inoremap <silent><expr> <TAB>  coc#pum#visible() ? coc#pum#next(1): <SID>check_back_space() ? '<Tab>'  : coc#refresh()
+inoremap <silent><expr> <Down> coc#pum#visible() ? coc#pum#next(1): <SID>check_back_space() ? '<Down>' : coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'
+inoremap <expr><Up>    coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'
 " Others
-nnoremap <silent> H :<C-u>call CocAction('doHover') <cr>
-nmap <silent> df <Plug>(coc-definition)
-nmap <silent> rf <Plug>(coc-references)
-nmap <silent> rn <Plug>(coc-rename)
-nmap <silent> fmt <Plug>(coc-format)
-nmap <silent> mne <Plug>(coc-diagnostic-next-error)
-nmap <silent> mpe <Plug>(coc-diagnostic-prev-error)
+nnoremap <silent> H : <C-u>call CocAction('doHover') <cr>
+nnoremap <silent> df  <Plug>(coc-definition)
+nnoremap <silent> rf  <Plug>(coc-references)
+nnoremap <silent> rn  <Plug>(coc-rename)
+nnoremap <silent> fmt <Plug>(coc-format)
+nnoremap <silent> mne <Plug>(coc-diagnostic-next-error)
+nnoremap <silent> mpe <Plug>(coc-diagnostic-prev-error)
