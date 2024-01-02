@@ -8,3 +8,4 @@ inoremap jj <Esc>
 inoremap <C-o> <C-o>o
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+inoremap <C-d> <del>
