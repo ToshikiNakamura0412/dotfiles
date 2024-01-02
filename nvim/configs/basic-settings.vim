@@ -5,22 +5,22 @@ set colorcolumn=121
 highlight ColorColumn guibg=gray ctermbg=gray
 set termguicolors
 
-" === control ===
-" バッファが編集中でもその他のファイルを開けるように
+" === Control ===
+" Allows other files to be opened while buffers are being edited
 set hidden
-" スクロール時の余裕
+" Scroll margin
 set scrolloff=20
-" 行末の1文字先までカーソルを移動できるように
+" Allow the cursor to move one character beyond the end of line
 set virtualedit=onemore
-" 行をまたいで移動
+" Allows movement across lines
 set whichwrap=b,s,h,l,<,>,[,],~
 
-" === edit ===
+" === Edit ===
 " Copy to clipboard
 set clipboard=unnamedplus
-" 保存時に行末の空白を削除する
+" Remove space at the end of line when saving
 autocmd BufWritePre * :%s/\s\+$//ge
-" 最後にカーソルがあった場所に移動
+" Place the cursor at the last position of the last time when opening file
 augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
@@ -32,23 +32,22 @@ if has('persistent_undo')
 endif
 
 " === Tab ===
-" 不可視文字を可視化(タブが「▸-」と表示される)
+" Show Tab with ▸-
 set list listchars=tab:\▸\-
-" Tab文字を半角スペースにする
+" Make Tab half-width space
 set expandtab
-" 行頭以外のTab文字の表示幅（スペースいくつ分）
+" The number of space as Tab
 set tabstop=4
-" 空白部分でtabキーやbackspaceを押したときにカーソル移動する幅
 set softtabstop=4
-" 自動インデントの幅
+" Indent size when shifting text
 set shiftwidth=4
-" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+" Auto indent size
+set autoindent
 set smartindent
-" 改行時に前の行のインデントを継続する
-set autoindent " :set pasteで解除可能
+set cindent
 
-" === search ===
-" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+" === Search ===
+" Ignore upper and lower case letters when searching
 set ignorecase
-" 検索文字列に大文字が含まれている場合は区別して検索する
+" Normal search
 set smartcase
