@@ -3,7 +3,10 @@ set number
 set cursorline
 set colorcolumn=121
 highlight ColorColumn guibg=gray ctermbg=gray
+" Enable True Color
 set termguicolors
+" The maximum number of items to show in the popup menu
+set pumheight=10
 
 " === Control ===
 " Allows other files to be opened while buffers are being edited
@@ -30,6 +33,8 @@ if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
+" Do not create swap file
+set noswapfile
 
 " === Tab ===
 " Show Tab with ▸-
