@@ -11,6 +11,4 @@
         "startupMessage": false,
         "executable.command": "~/.local/bin/jedi-language-server"
     },
-    "explorer.icon.enableNerdfont": true,
-    "explorer.icon.source": "vim-devicons"
 }
