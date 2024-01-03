@@ -1,6 +1,9 @@
 " === nvim-tree ===
 nnoremap <silent><C-e> <Cmd>NvimTreeToggle<CR>
 
+" === toggleterm ===
+nnoremap <silent><C-t> <Cmd>ToggleTerm<CR>
+
 " === barbar ===
 nnoremap <silent><C-n> <Cmd>BufferNext<CR>
 nnoremap <silent><C-p> <Cmd>BufferPrevious<CR>
