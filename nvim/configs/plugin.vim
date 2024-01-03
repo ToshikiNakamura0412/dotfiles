@@ -28,6 +28,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
 let g:coc_global_extensions = [
     \'coc-lists',

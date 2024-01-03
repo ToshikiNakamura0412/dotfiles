@@ -27,4 +27,7 @@ require'nvim-surround'.setup {  }
 
 -- === mini.indentscope ===
 require'mini.indentscope'.setup { symbol = '▏' }
+
+-- === toggleterm ===
+require'toggleterm'.setup {  }
 END
