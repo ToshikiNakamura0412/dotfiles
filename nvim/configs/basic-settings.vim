@@ -1,6 +1,7 @@
 " === Look ===
 set number
 set cursorline
+set mousemoveevent
 set colorcolumn=121
 highlight ColorColumn guibg=gray ctermbg=gray
 " Enable True Color

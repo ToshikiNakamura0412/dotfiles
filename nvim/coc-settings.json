@@ -11,4 +11,8 @@
         "startupMessage": false,
         "executable.command": "~/.local/bin/jedi-language-server"
     },
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": "",
+    "diagnostic.warningSign": "",
+    "diagnostic.errorSign": "",
 }
