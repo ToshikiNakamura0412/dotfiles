@@ -30,10 +30,12 @@ augroup vimrcEx
 augroup END
 " undo
 if has('persistent_undo')
-  set undodir=~/.vim/undo
+  set undodir=~/.config/nvim/undo
   set undofile
 endif
-" Do not create swap file
+" Don't create backupfiles
+set nobackup
+" Don't create swapfiles
 set noswapfile
 
 " === Tab ===
