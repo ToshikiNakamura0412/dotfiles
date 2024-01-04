@@ -4,9 +4,15 @@ nnoremap <silent><C-e> <Cmd>NvimTreeToggle<CR>
 " === toggleterm ===
 nnoremap <silent><C-t> <Cmd>ToggleTerm<CR>
 
-" === barbar ===
-nnoremap <silent><C-n> <Cmd>BufferNext<CR>
-nnoremap <silent><C-p> <Cmd>BufferPrevious<CR>
+" === telescope ===
+nnoremap <silent>ff <Cmd>Telescope find_files<CR>
+nnoremap <silent>fg <Cmd>Telescope live_grep<CR>
+
+" === diffview ===
+nnoremap <silent>gd <Cmd>DiffviewOpen<CR>
+
+" === vim-print-debug ===
+nnoremap <silent>dp <Cmd>call print_debug#print_debug()<CR>
 
 " === coc ===
 " No line break on Enter in completion candidate display
@@ -21,10 +27,10 @@ inoremap <silent><expr> <Down> coc#pum#visible() ? coc#pum#next(1): <SID>check_b
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'
 inoremap <expr><Up>    coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'
 " Others
-nnoremap <silent> H : <C-u>call CocAction('doHover') <cr>
-nnoremap <silent> df  <Plug>(coc-definition)
-nnoremap <silent> rf  <Plug>(coc-references)
-nnoremap <silent> rn  <Plug>(coc-rename)
-nnoremap <silent> fmt <Plug>(coc-format)
-nnoremap <silent> mne <Plug>(coc-diagnostic-next-error)
-nnoremap <silent> mpe <Plug>(coc-diagnostic-prev-error)
+nnoremap <silent>H : <C-u>call CocAction('doHover') <CR>
+nnoremap <silent>df  <Plug>(coc-definition)
+nnoremap <silent>rf  <Plug>(coc-references)
+nnoremap <silent>rn  <Plug>(coc-rename)
+nnoremap <silent>fmt <Plug>(coc-format)
+nnoremap <silent>mne <Plug>(coc-diagnostic-next-error)
+nnoremap <silent>mpe <Plug>(coc-diagnostic-prev-error)

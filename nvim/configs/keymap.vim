@@ -2,6 +2,8 @@
 noremap <Esc><Esc> <Cmd>nohlsearch<CR><Esc>
 noremap <Space>h ^
 noremap <Space>l $
+noremap <C-n> <Cmd>bnext<CR>
+noremap <C-p> <Cmd>bprevious<CR>
 
 " Insert
 inoremap jj <Esc>
