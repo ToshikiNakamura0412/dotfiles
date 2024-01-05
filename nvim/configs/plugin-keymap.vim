@@ -8,6 +8,9 @@ nnoremap <silent><C-t> <Cmd>ToggleTerm<CR>
 nnoremap <silent>ff <Cmd>Telescope find_files<CR>
 nnoremap <silent>fg <Cmd>Telescope live_grep<CR>
 
+" === neogit ===
+nnoremap <silent>gs <Cmd>Neogit<CR>
+
 " === diffview ===
 nnoremap <silent>gd <Cmd>DiffviewOpen<CR>
 

@@ -25,11 +25,14 @@ lua << END
 -- === lualine ===
 require'lualine'.setup { options = { theme = 'carbonfox' } }
 
+-- === gitsigns ===
+require'gitsigns'.setup {  }
+
 -- === neogit ===
 require'neogit'.setup {  }
 
 -- === diffview ===
-require'diffview'.setup {  }
+require'diffview'.setup { }
 
 -- === telescope ===
 require'telescope'.setup {  }
