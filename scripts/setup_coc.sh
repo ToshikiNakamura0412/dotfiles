@@ -14,6 +14,7 @@ echo " jedi-language-server will be installed"
 echo "========================================"
 sudo apt install python3-pip -y --no-install-recommends
 pip3 install jedi-language-server
+pip3 install pynvim
 echo ">>> Done"
 echo ""
 
