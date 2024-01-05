@@ -1,14 +1,14 @@
 colorscheme molokai
 
-" === rainbow ===
-let g:rainbow_active = 1
-
 " === vim-polyglot ===
 let g:cpp_member_highlight = 1
 let g:cpp_simple_highlight = 1
 
 " === vim-cpp-enhanced-highlight ===
 let g:cpp_class_scope_highlight = 1
+
+" === rainbow ===
+let g:rainbow_active = 1
 
 " === vim-print-debug ===
 let g:print_debug_templates = {
@@ -25,30 +25,6 @@ lua << END
 -- === lualine ===
 require'lualine'.setup { options = { theme = 'carbonfox' } }
 
--- === gitsigns ===
-require'gitsigns'.setup {  }
-
--- === neogit ===
-require'neogit'.setup {  }
-
--- === diffview ===
-require'diffview'.setup { }
-
--- === telescope ===
-require'telescope'.setup {  }
-
---- === nvim-tree ===
-require'nvim-tree'.setup {  }
-
---- === nvim-surround ===
-require'nvim-surround'.setup {  }
-
--- === mini.indentscope ===
-require'mini.indentscope'.setup { symbol = '▏' }
-
--- === toggleterm ===
-require'toggleterm'.setup {  }
-
 -- === bufferline ===
 require'bufferline'.setup {
   options = {
@@ -60,4 +36,28 @@ require'bufferline'.setup {
     },
   }
 }
+
+--- === nvim-tree ===
+require'nvim-tree'.setup {  }
+
+-- === telescope ===
+require'telescope'.setup {  }
+
+-- === mini.indentscope ===
+require'mini.indentscope'.setup { symbol = '▏' }
+
+--- === nvim-surround ===
+require'nvim-surround'.setup {  }
+
+-- === neogit ===
+require'neogit'.setup {  }
+
+-- === diffview ===
+require'diffview'.setup { }
+
+-- === gitsigns ===
+require'gitsigns'.setup {  }
+
+-- === toggleterm ===
+require'toggleterm'.setup {  }
 END

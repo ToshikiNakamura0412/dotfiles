@@ -10,30 +10,41 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 " List of plugins
 call plug#begin('~/.local/share/nvim/plugged')
+" colorscheme
 Plug 'tomasr/molokai'
 Plug 'EdenEast/nightfox.nvim'
+" statusline
 Plug 'nvim-lualine/lualine.nvim'
+" bufferline
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+" filer
+Plug 'nvim-tree/nvim-tree.lua'
+" fuzzy finder
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'BurntSushi/ripgrep'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'machakann/vim-highlightedyank'
-Plug 'sentriz/vim-print-debug'
-Plug 'tpope/vim-commentary'
-Plug 'kylechui/nvim-surround'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'NeogitOrg/neogit'
-Plug 'sindrets/diffview.nvim'
-Plug 'skanehira/translate.vim'
+" highlight
+Plug 'sheerun/vim-polyglot'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'echasnovski/mini.indentscope'
-Plug 'sheerun/vim-polyglot'
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'machakann/vim-highlightedyank'
+" coding
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
+Plug 'kylechui/nvim-surround'
+" debug
+Plug 'sentriz/vim-print-debug'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'skanehira/translate.vim'
+" git
+Plug 'NeogitOrg/neogit'
+Plug 'sindrets/diffview.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+" icon
+Plug 'nvim-tree/nvim-web-devicons'
+" terminal
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
 let g:coc_global_extensions = [
