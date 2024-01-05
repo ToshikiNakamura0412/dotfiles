@@ -1,12 +1,12 @@
 " === nvim-tree ===
 nnoremap <silent><C-e> <Cmd>NvimTreeToggle<CR>
 
-" === toggleterm ===
-nnoremap <silent><C-t> <Cmd>ToggleTerm<CR>
-
 " === telescope ===
 nnoremap <silent>ff <Cmd>Telescope find_files<CR>
 nnoremap <silent>fg <Cmd>Telescope live_grep<CR>
+
+" === vim-print-debug ===
+nnoremap <silent>dp <Cmd>call print_debug#print_debug()<CR>
 
 " === neogit ===
 nnoremap <silent>gs <Cmd>Neogit<CR>
@@ -14,8 +14,8 @@ nnoremap <silent>gs <Cmd>Neogit<CR>
 " === diffview ===
 nnoremap <silent>gd <Cmd>DiffviewOpen<CR>
 
-" === vim-print-debug ===
-nnoremap <silent>dp <Cmd>call print_debug#print_debug()<CR>
+" === toggleterm ===
+nnoremap <silent><C-t> <Cmd>ToggleTerm<CR>
 
 " === coc ===
 " No line break on Enter in completion candidate display
