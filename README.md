@@ -6,7 +6,7 @@ Setting for git, aliases, neovim and tmux
 - bash or zsh
 ## Prerequisites
 Following software should be installed
-- `neovim`
+- `Neovim`
 - `tmux`
 ## Installation
 ```
@@ -26,10 +26,16 @@ nvim ~/.config/nvim/coc-settings.json
 ### zsh
 If you use oh-my-zsh (powerlevel10k theme), you should set the following parameter in `~/.p10k.zsh`
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
-### Upgrade (or Install) NeoVim
+### Upgrade (or Install) Neovim
 ```
 git clone --depth=1 https://github.com/ToshikiNakamura0412/my_ubuntu_setup.git ~/my_ubuntu_setup
 ~/my_ubuntu_setup/scripts/upgrade_nvim.sh
+```
+### Upgrade Git
+```
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt upgrade -y
 ```
 ## Vim plugin manager
 vim-plug (https://github.com/junegunn/vim-plug.git)
