@@ -22,7 +22,6 @@ Plug 'nvim-tree/nvim-tree.lua'
 " fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'nvim-lua/plenary.nvim'
-Plug 'BurntSushi/ripgrep'
 " highlight
 Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
