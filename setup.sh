@@ -1,20 +1,38 @@
 #!/bin/sh
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
+# font
+echo "=============================="
+echo " nerd-fonts will be installed"
+echo "=============================="
+if [ ! -d ~/.local/share/fonts ]; then
+    mkdir -p -v ~/.local/share/fonts
+fi
+if [ ! -e ~/.local/share/fonts/HackNerdFont-Regular.ttf ]; then
+    cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
+fi
+echo ">>> Done"
+echo ""
+
 echo "======="
 echo " Setup"
 echo "======="
 
 # git
-echo -n "setting git... "
-if [ ! -e ~/.gitconfig ]; then
+echo "setting git... "
+if [ -e ~/.gitconfig ]; then
+    LOAD_COMMAND_COUNT=$(cat ~/.gitconfig | grep alias | wc -l)
+    if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
+        cat $SCRIPT_DIR/scripts/gitconfig >> ~/.gitconfig
+    fi
+else
     cat $SCRIPT_DIR/scripts/gitconfig > ~/.gitconfig
 fi
 if [ ! -d ~/.config/git ]; then
    mkdir -p -v ~/.config/git
 fi
-ln -sf $SCRIPT_DIR/scripts/gitignore ~/.config/git/ignore
-echo "Done"
+ln -siv $SCRIPT_DIR/scripts/gitignore ~/.config/git/ignore
+echo ">>> Done"
 echo ""
 
 # shell
@@ -39,12 +57,14 @@ echo "Done"
 echo ""
 
 # tmux
-echo -n "setting tmux... "
+echo "setting tmux... "
 if [ -d ~/.tmux ]; then
     rm -rf ~/.tmux
 fi
-ln -sf $SCRIPT_DIR/tmux.conf ~/.tmux.conf
-echo "Done"
+ln -sfv $SCRIPT_DIR/tmux.conf ~/.tmux.conf
+git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
+echo ">>> Done"
 echo ""
 
 # Neovim
@@ -59,16 +79,16 @@ if [ -d ~/.config/coc ]; then
     rm -rf ~/.config/coc
 fi
 if [ ! -d ~/.config/nvim ]; then
-    mkdir -p -v ~/.config/nvim
+    mkdir -pv ~/.config/nvim
 fi
-ln -sf $SCRIPT_DIR/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf $SCRIPT_DIR/nvim/configs/basic-settings.vim ~/.config/nvim/basic-settings.vim
-ln -sf $SCRIPT_DIR/nvim/configs/keymap.vim ~/.config/nvim/keymap.vim
-ln -sf $SCRIPT_DIR/nvim/configs/plugin-keymap.vim ~/.config/nvim/plugin-keymap.vim
-ln -sf $SCRIPT_DIR/nvim/configs/plugin-settings.vim ~/.config/nvim/plugin-settings.vim
-ln -sf $SCRIPT_DIR/nvim/configs/plugin.vim ~/.config/nvim/plugin.vim
-ln -sf $SCRIPT_DIR/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
-ln -sf $SCRIPT_DIR/nvim/clang-format ~/.clang-format
+ln -sfv $SCRIPT_DIR/nvim/init.vim ~/.config/nvim/init.vim
+ln -sfv $SCRIPT_DIR/nvim/configs/basic-settings.vim ~/.config/nvim/basic-settings.vim
+ln -sfv $SCRIPT_DIR/nvim/configs/keymap.vim ~/.config/nvim/keymap.vim
+ln -sfv $SCRIPT_DIR/nvim/configs/plugin-keymap.vim ~/.config/nvim/plugin-keymap.vim
+ln -sfv $SCRIPT_DIR/nvim/configs/plugin-settings.vim ~/.config/nvim/plugin-settings.vim
+ln -sfv $SCRIPT_DIR/nvim/configs/plugin.vim ~/.config/nvim/plugin.vim
+ln -sfv $SCRIPT_DIR/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -sfv $SCRIPT_DIR/nvim/clang-format ~/.clang-format
 echo ">>> Done"
 echo ""
 
@@ -78,5 +98,6 @@ $SCRIPT_DIR/scripts/setup_coc.sh
 echo ""
 echo "==="
 echo "Finish!!"
+echo "please set your terminal font as 'Hack Nerd Font Regular'"
 echo "==="
 echo "(If you want to upgrade Neovim, please refer to README.md)"
