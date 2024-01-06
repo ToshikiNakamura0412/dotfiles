@@ -28,19 +28,18 @@ If you use oh-my-zsh (powerlevel10k theme), you should set the following paramet
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
 ### Upgrade (or Install) Neovim
 ```
-git clone --depth=1 https://github.com/ToshikiNakamura0412/my_ubuntu_setup.git ~/my_ubuntu_setup
-~/my_ubuntu_setup/scripts/upgrade_nvim.sh
+~/dotfiles/scripts/upgrade_nvim.sh
 ```
 ### Upgrade Git
 ```
-sudo add-apt-repository ppa:git-core/ppa
-sudo apt update
-sudo apt upgrade -y
+~/dotfiles/scripts/upgrade_git.sh
 ```
 ## Vim plugin manager
 vim-plug (https://github.com/junegunn/vim-plug.git)
 ## tmux plugin manager
 tpm (https://github.com/tmux-plugins/tpm.git)
+
+prefix key: `Ctrl-s`
 ## C/C++ Completion for ROS
 If you want to enable C/C++ completion for ROS, the following commands must be executed when building packages.
 ```
