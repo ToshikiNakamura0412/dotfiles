@@ -43,11 +43,14 @@ prefix key: `Ctrl-s`
 ## C/C++ Completion for ROS
 If you want to enable C/C++ completion for ROS, the following commands must be executed when building packages.
 ```
-# build and enable completion for all packages
-cd <ROS workspace>
-catkin-compile-commands-json
-
-# build and enable completion for one package
+# enable simple completion
+# - add following paths
+#   - /opt/ros/<ROS DISTRO>/include
+#   - <target package>/include
 cd <target package>
-catkin-compile-commands-json-this
+create-simple-compile-flags
+
+# build and enable completion related to target package
+cd <target package>
+cbt-export-compile-commands
 ```
