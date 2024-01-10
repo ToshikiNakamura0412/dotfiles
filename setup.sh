@@ -92,8 +92,10 @@ ln -sfv $SCRIPT_DIR/nvim/clang-format ~/.clang-format
 echo ">>> Done"
 echo ""
 
-# setup_coc_extensions
+# setup coc extensions
 $SCRIPT_DIR/scripts/setup_coc.sh
+# setup fzf for Neovim
+$SCRIPT_DIR/scripts/setup_fzf.sh
 
 echo ""
 echo "==="
