@@ -32,6 +32,7 @@ Plug 'machakann/vim-highlightedyank'
 " coding
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
 Plug 'kylechui/nvim-surround'
 " debug
 Plug 'sentriz/vim-print-debug'
@@ -48,7 +49,6 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
 let g:coc_global_extensions = [
     \'coc-lists',
-    \'coc-pairs',
     \'coc-snippets',
     \'coc-sh',
     \'coc-cmake',
