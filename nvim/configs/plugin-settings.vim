@@ -23,7 +23,12 @@ highlight GitGutterChange guifg=#FB8505 ctermfg=3
 
 lua << END
 -- === lualine ===
-require'lualine'.setup { options = { theme = 'carbonfox' } }
+require'lualine'.setup {
+  options = {
+    theme = 'carbonfox',
+    path = 2
+  }
+}
 
 -- === bufferline ===
 require'bufferline'.setup {
