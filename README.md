@@ -10,7 +10,7 @@ Setting for git, aliases, neovim and tmux
 ## Installation
 ```
 git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
-~/dotfiles/setup.sh
+~/dotfiles/install.sh
 ```
 ### Setup plugin
 Please set executable.command path for `jedi-language-server`
