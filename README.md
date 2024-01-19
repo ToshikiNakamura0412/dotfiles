@@ -1,12 +1,9 @@
 # dotfiles
-Setting for git, aliases, neovim and tmux
+Setting for aliases, git, neovim and tmux
 ## Environment
 - Ubuntu
 - WSL2
 - bash or zsh
-## Setting file
-- Neovim
-- tmux
 ## Installation
 ```
 git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
