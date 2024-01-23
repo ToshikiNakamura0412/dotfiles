@@ -1,5 +1,7 @@
 # dotfiles
-Setting for aliases, git, neovim and tmux
+- Setting for aliases, git, neovim and tmux
+- tmux
+  - prefix key: `Ctrl-s`
 ## Environment
 - Ubuntu
 - WSL2
@@ -17,18 +19,18 @@ nvim ~/.config/nvim/coc-settings.json
 ### zsh
 If you use oh-my-zsh (powerlevel10k theme), you should set the following parameter in `~/.p10k.zsh`
 - `typeset -g POWERLEVEL9K_INSTANT_PROMPT=off`
-### Upgrade Git
+### [Option] Upgrade Git
 ```
 ~/dotfiles/scripts/upgrade_git.sh
 ```
-## Vim plugin manager
-vim-plug (https://github.com/junegunn/vim-plug.git)
-## tmux plugin manager
-tpm (https://github.com/tmux-plugins/tpm.git)
-
-prefix key: `Ctrl-s`
+## Update
+```
+cd ~/dotfiles
+git pull
+git submodule update
+```
 ## C/C++ Completion for ROS
-If you want to enable C/C++ completion for ROS, the following commands must be executed when building packages.
+If you want to enable C/C++ completion for ROS, please execute the following:
 ```
 # enable simple completion
 # - add following paths
@@ -41,3 +43,15 @@ create-simple-compile-flags
 cd <target package>
 cbt-export-compile-commands
 ```
+## Troubleshoot
+### Character encoding issue
+Set your terminal font as `Hack Nerd Font`.
+### The text color is white
+It may not be compatible with True Color.<br>
+If you have color settings in your shell, please disable them.<br>
+If the issue persists, please execute the following:
+```
+export TERM=screen-256color
+```
+### It's not working properly
+Please reinstall.
