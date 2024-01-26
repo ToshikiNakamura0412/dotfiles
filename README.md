@@ -30,18 +30,18 @@ git pull
 git submodule update
 ```
 ## C/C++ Completion for ROS
-If you want to enable C/C++ completion for ROS, please execute the following:
+If you want to enable C/C++ completion for ROS1, please execute the following:
 ```
 # enable simple completion
 # - add following paths
 #   - /opt/ros/<ROS DISTRO>/include
 #   - <target package>/include
 cd <target package>
-create-simple-compile-flags
+create_simple_compile_flags
 
 # build and enable completion related to target package
 cd <target package>
-cbt-export-compile-commands
+cbt_export_compile_commands
 ```
 ## Troubleshoot
 ### Character encoding issue

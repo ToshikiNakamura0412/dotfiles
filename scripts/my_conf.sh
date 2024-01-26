@@ -31,11 +31,11 @@ if [ -d /opt/ros ]; then
   alias cbt='catkin build --this -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 
   # Set alias commands for ROS completion and build
-  function create-simple-compile-flags() {
+  function create_simple_compile_flags() {
       echo "-I/opt/ros/$ROS_DISTRO/include" > compile_flags.txt
       echo "-I$PWD/include" >> compile_flags.txt
   }
-  function cbt-export-compile-commands() {
+  function cbt_export_compile_commands() {
       catkin build --this -DCMAKE_EXPORT_COMPILE_COMMANDS=1
       echo ""
       if [ -e package.xml ]; then
