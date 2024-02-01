@@ -43,7 +43,7 @@ create_simple_compile_flags
 cd <target package>
 cbt_export_compile_commands
 ```
-## Troubleshoot
+## "Troubleshooting Tips
 ### Character encoding issue
 Set your terminal font as `Hack Nerd Font`.
 ### The text color is white
