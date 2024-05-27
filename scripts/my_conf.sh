@@ -49,8 +49,12 @@ if [ -d /opt/ros ]; then
           echo "Error: package.xml not found in current directory, so can't create symlink to compile_commands.json"
       fi
   }
-else
+elif [ -d ~/ros1_ws ]; then
   ROS_WORKSPACE=~/ros1_ws
+  alias cw='cd $ROS_WORKSPACE'
+  alias cs='cd $ROS_WORKSPACE/src'
+elif [ -d ~/ros2_ws ]; then
+  ROS_WORKSPACE=~/ros2_ws
   alias cw='cd $ROS_WORKSPACE'
   alias cs='cd $ROS_WORKSPACE/src'
 fi
