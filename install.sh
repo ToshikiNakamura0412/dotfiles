@@ -3,18 +3,11 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # git
 echo "setting git... "
-if [ -e ~/.gitconfig ]; then
-    LOAD_COMMAND_COUNT=$(cat ~/.gitconfig | grep alias | wc -l)
-    if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
-        cat $SCRIPT_DIR/scripts/gitconfig >> ~/.gitconfig
-    fi
-else
-    cat $SCRIPT_DIR/scripts/gitconfig > ~/.gitconfig
-fi
 if [ ! -d ~/.config/git ]; then
    mkdir -p -v ~/.config/git
 fi
 ln -siv $SCRIPT_DIR/scripts/gitignore ~/.config/git/ignore
+ln -siv $SCRIPT_DIR/scripts/gitconfig ~/.gitconfig
 echo ">>> Done"
 echo ""
 
