@@ -3,11 +3,20 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # git
 echo "setting git... "
-if [ ! -d ~/.config/git ]; then
-   mkdir -p -v ~/.config/git
+if [ -e ~/.gitconfig ]; then
+    SETTING_COUNT1=$(cat ~/.gitconfig | grep alias | wc -l)
+    SETTING_COUNT2=$(cat ~/.gitconfig | grep url | wc -l)
+    if [ $SETTING_COUNT1 -eq 0 ] || [ $SETTING_COUNT2 -eq 0 ]; then
+        cat $SCRIPT_DIR/scripts/gitconfig >> ~/.gitconfig
+    fi
+else
+    cat $SCRIPT_DIR/scripts/gitconfig > ~/.gitconfig
 fi
+if [ ! -d ~/.config/git ]; then
+    mkdir -p -v ~/.config/git
+fi
+
 ln -siv $SCRIPT_DIR/scripts/gitignore ~/.config/git/ignore
-ln -siv $SCRIPT_DIR/scripts/gitconfig ~/.gitconfig
 echo ">>> Done"
 echo ""
 
