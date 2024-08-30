@@ -39,10 +39,22 @@ $SCRIPT_DIR/scripts/setup_zsh.sh $OS_NAME
 $SCRIPT_DIR/scripts/setup_git.sh
 
 # tmux
-echo "install tmux... "
-sudo apt-get update && sudo apt-get install -y --no-install-recommends tmux
-echo ">>> Done"
-echo ""
+if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ]; then
+    echo "install tmux... "
+    sudo apt-get update && sudo apt-get install -y --no-install-recommends tmux
+    echo ">>> Done"
+    echo ""
+elif [ $OS_NAME = "alpine" ]; then
+    echo "install tmux... "
+    sudo apk update && sudo apk add tmux
+    echo ">>> Done"
+    echo ""
+elif [ $OS_NAME = "mac" ]; then
+    echo "install tmux... "
+    brew install tmux
+    echo ">>> Done"
+    echo ""
+fi
 $SCRIPT_DIR/scripts/setup_tmux.sh
 
 # Neovim

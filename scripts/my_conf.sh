@@ -1,5 +1,9 @@
-source /etc/os-release
-OS_NAME=$(echo $ID)
+OS_NAME="_init_"
+
+if [ -e /etc/os-release ]; then
+  source /etc/os-release
+  OS_NAME=$(echo $ID)
+fi
 
 if [[ $OS_NAME = "alpine" ]]; then
   alias ll='ls -l'
