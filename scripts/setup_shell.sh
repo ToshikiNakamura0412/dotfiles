@@ -7,8 +7,25 @@ if [ -z $OS_NAME ]; then
     OS_NAME=$(echo $ID)
 fi
 
+echo -n "setting shell... "
+if [ -e ~/.bashrc ]; then # bashrc
+    LOAD_COMMAND_COUNT=$(cat ~/.bashrc | grep dotfiles\/scripts\/my_conf\.sh | wc -l)
+    if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
+        echo "" >> ~/.bashrc
+        echo "# dotfiles" >> ~/.bashrc
+        echo "source $SCRIPT_DIR/scripts/my_conf.sh" >> ~/.bashrc
+    fi
+fi
+if [ -e ~/.zshrc ]; then # zshrc
+    LOAD_COMMAND_COUNT=$(cat ~/.zshrc | grep dotfiles\/scripts\/my_conf\.sh | wc -l)
+    if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
+        echo "" >> ~/.zshrc
+        echo "# dotfiles" >> ~/.zshrc
+        echo "source $SCRIPT_DIR/scripts/my_conf.sh" >> ~/.zshrc
+    fi
+fi
+echo "Done"
 echo ""
-echo "setting zsh... "
 
 if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "mac" ]; then
     echo ""
@@ -21,7 +38,6 @@ if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "mac" ]; t
     ln -sfv $SCRIPT_DIR/../zsh/zshrc ~/.zshrc
     ln -sfv $SCRIPT_DIR/../zsh/p10k.zsh ~/.p10k.zsh
     ~/.fzf/install
+    echo ">>> Done"
+    echo ""
 fi
-
-echo ">>> Done"
-echo ""
