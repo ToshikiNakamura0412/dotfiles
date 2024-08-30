@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![image](https://drive.google.com/file/d/18Krh886ab45_0dO0gCUYF9nIK3Pimo2G/view?usp=sharing)
+![image](https://github.com/ToshikiNakamura0412/dotfiles/wiki/images/dotfiles.png)
 
 - Setting for aliases, shell, zsh, git, vim, neovim and tmux
   - tmux
