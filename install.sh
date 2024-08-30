@@ -1,5 +1,11 @@
 #!/bin/sh
+
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
+OS_NAME=$1
+if [ -z $OS_NAME ]; then
+    source /etc/os-release
+    OS_NAME=$(echo $ID)
+fi
 
 # shell
 echo -n "setting shell... "
@@ -21,6 +27,13 @@ if [ -e ~/.zshrc ]; then # zshrc
 fi
 echo "Done"
 echo ""
+
+# zsh
+if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ]; then
+    echo "install zsh... "
+    sudo apt-get update && sudo apt-get install -y --no-install-recommends zsh
+fi
+$SCRIPT_DIR/scripts/setup_zsh.sh $OS_NAME
 
 # git
 $SCRIPT_DIR/scripts/setup_git.sh
