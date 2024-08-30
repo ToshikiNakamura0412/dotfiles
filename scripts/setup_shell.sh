@@ -13,7 +13,7 @@ if [ -e ~/.bashrc ]; then # bashrc
     if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
         echo "" >> ~/.bashrc
         echo "# dotfiles" >> ~/.bashrc
-        echo "source $SCRIPT_DIR/scripts/my_conf.sh" >> ~/.bashrc
+        echo "source $SCRIPT_DIR/my_conf.sh" >> ~/.bashrc
     fi
 fi
 if [ -e ~/.zshrc ]; then # zshrc
@@ -21,7 +21,7 @@ if [ -e ~/.zshrc ]; then # zshrc
     if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
         echo "" >> ~/.zshrc
         echo "# dotfiles" >> ~/.zshrc
-        echo "source $SCRIPT_DIR/scripts/my_conf.sh" >> ~/.zshrc
+        echo "source $SCRIPT_DIR/my_conf.sh" >> ~/.zshrc
     fi
 fi
 echo "Done"
