@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
 VALID_TMUX_POWER_THEME=("default" "gold" "everforest" "moon" "coral" "snow" "forest" "violet" "redwine")
 
 function show_usage() {
@@ -36,6 +37,9 @@ function change_tmux_conf() {
     echo "prefix key: $prefix_key"
     echo "tmux power theme: $tmux_power_theme"
 
+    if [[ ! -e $HOME/.tmux.conf ]]; then
+        ln -sfv $SCRIPT_DIR/../tmux.conf ~/.tmux.conf
+    fi
     if [[ -e ../tmux.conf.bak ]]; then
         cp ../tmux.conf.bak ../tmux.conf
     fi
