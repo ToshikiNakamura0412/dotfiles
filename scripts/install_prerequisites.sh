@@ -19,5 +19,6 @@ elif [ $OS_NAME = "mac" ]; then
         tmux
 fi
 
-# Neovim
+# Vim/Neovim
+$SCRIPT_DIR/../nvim/configs/basic/install.sh $OS_NAME
 $SCRIPT_DIR/../nvim/install.sh $OS_NAME
