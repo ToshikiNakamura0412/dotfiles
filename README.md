@@ -22,7 +22,7 @@
   - [WIP] opensuse
   - Ubuntu (Native)
   - Ubuntu (WSL2)
-- macOS
+- macOS (Prerequisites: Homebrew, pip3)
 
 ### Architecture
 - x86_64
@@ -32,29 +32,20 @@
 - bash
 - zsh
 
-## Installation & Setup
-### Linux
+## Installation
 ```bash
 git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-### macOS
-#### Prerequisites
-- Homebrew
-- pip3
-```bash
-git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
-~/dotfiles/install.sh mac
-```
-
-### Setup
-#### zsh
+## Setup
+### zsh
 If you want to change the terminal appearance, please execute the following:
 ```bash
 p10k configure
 ```
-#### tmux
+
+### tmux
 If you want to change the prefix key and the theme, please execute the following:
 ```bash
 ./change_tmux_conf.sh <prefix_key> <tmux_power_theme>
@@ -63,8 +54,9 @@ Show the help:
 ```bash
 ./change_tmux_conf.sh -h
 ```
-#### plugin
-##### nvim
+
+### plugin
+#### nvim
 Please set executable.command path for `jedi-language-server`
 ```bash
 nvim ~/.config/nvim/coc-settings.json
