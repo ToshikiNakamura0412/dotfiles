@@ -1,18 +1,18 @@
 OS_NAME="_init_"
 
-if [ -e /etc/os-release ]; then
+if [[ -e /etc/os-release ]]; then
   source /etc/os-release
   OS_NAME=$(echo $ID)
 fi
 
-if [[ $OS_NAME = "alpine" ]]; then
+if [[ $OS_NAME == "alpine" ]]; then
   alias ll='ls -l'
   alias la='ls -lA'
   alias l='ls -la'
 
-elif [[ $OS_NAME = "ubuntu" ]]; then
+elif [[ $OS_NAME == "ubuntu" ]]; then
   # Show git branch
-  if [[ $0 = "bash" ]]; then
+  if [[ -n "$BASH_VERSION" ]]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1)\$ '
   fi
 
@@ -69,7 +69,7 @@ elif [[ $OS_NAME = "ubuntu" ]]; then
       function colcon_clean() {
         echo -n "rm: remove directories 'build' 'install' 'log'? (yes/no) "
         read str
-        if [[ $str = "yes" ]]; then
+        if [[ $str == "yes" ]]; then
           local pwd=$(pwd)
           cd $ROS_WORKSPACE
           rm -rf build install log
@@ -77,7 +77,7 @@ elif [[ $OS_NAME = "ubuntu" ]]; then
         fi
         unset AMENT_PREFIX_PATH
         unset CMAKE_PREFIX_PATH
-        if [[ $0 = "bash" ]]; then
+        if [[ -n "$BASH_VERSION" ]]; then
           source /opt/ros/humble/setup.bash
         else
           source /opt/ros/humble/setup.zsh
@@ -85,7 +85,7 @@ elif [[ $OS_NAME = "ubuntu" ]]; then
       }
 
       # Enable tab completion of colcon_cd
-      if [[ $0 = "bash" ]]; then
+      if [[ -n "$BASH_VERSION" ]]; then
         function _colcon_cd_packages() {
           local cur=${COMP_WORDS[COMP_CWORD]}
           local packages=$(cd && colcon list -n)
