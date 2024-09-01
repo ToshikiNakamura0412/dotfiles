@@ -80,6 +80,8 @@ git submodule update --remote --recursive
 | --- | --- |
 | `<prefix_key> + [` | Copy mode (`y`: yank) |
 
+- [pain control](https://github.com/tmux-plugins/tmux-pain-control.git)
+
 ### Neovim
 | Command | Description |
 | --- | --- |
