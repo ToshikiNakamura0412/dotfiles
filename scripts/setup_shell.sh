@@ -11,7 +11,7 @@ else
     exit 1
 fi
 
-if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "mac" ]; then
+if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "alpine" ] || [ $OS_NAME = "mac" ]; then
     echo ""
     echo "setting zsh... "
     git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -22,6 +22,17 @@ if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "mac" ]; t
     ln -sfv $SCRIPT_DIR/../zsh/zshrc ~/.zshrc
     ln -sfv $SCRIPT_DIR/../zsh/p10k.zsh ~/.p10k.zsh
     ~/.fzf/install
+    echo ">>> Done"
+    echo ""
+
+    echo ""
+    echo "setting bash... "
+    if ! type __git_ps1 &> /dev/null; then
+        curl -fLo ~/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+        curl -fLo ~/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+        echo "source ~/git-prompt.sh" >> ~/.bashrc
+        echo "source ~/git-completion.bash" >> ~/.bashrc
+    fi
     echo ">>> Done"
     echo ""
 fi

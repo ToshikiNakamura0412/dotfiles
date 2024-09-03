@@ -14,9 +14,12 @@ fi
 if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ]; then
     sudo apt-get update && sudo apt-get install -y --no-install-recommends \
         zsh \
+        curl \
         tmux
 elif [ $OS_NAME = "alpine" ]; then
     sudo apk update && sudo apk add \
+        zsh \
+        curl \
         tmux
 elif [ $OS_NAME = "mac" ]; then
     brew install \
