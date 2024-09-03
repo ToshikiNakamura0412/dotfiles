@@ -1,6 +1,15 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
+if [ "$(uname)" = "Linux" ]; then
+    source /etc/os-release
+    OS_NAME=$(echo $ID)
+elif [ "$(uname)" = "Darwin" ]; then
+    OS_NAME="mac"
+else
+    echo "This OS is not supported."
+    exit 1
+fi
 
 echo ""
 echo "setting git... "
@@ -17,6 +26,10 @@ fi
 if [ ! -d ~/.config/git ]; then
     mkdir -p -v ~/.config/git
 fi
-ln -siv $SCRIPT_DIR/gitignore ~/.config/git/ignore
+if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "mac" ]; then
+    ln -siv $SCRIPT_DIR/gitignore ~/.config/git/ignore
+elif [ $OS_NAME = "alpine" ]; then
+    ln -sv $SCRIPT_DIR/gitignore ~/.config/git/ignore
+fi
 echo ">>> Done"
 echo ""
