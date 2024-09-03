@@ -48,6 +48,7 @@ p10k configure
 ### tmux
 If you want to change the prefix key and the theme, please execute the following:
 ```bash
+cd dotfiles/scripts/
 ./change_tmux_conf.sh <prefix_key> <tmux_power_theme>
 ```
 Show the help:
