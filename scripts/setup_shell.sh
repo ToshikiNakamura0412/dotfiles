@@ -33,6 +33,9 @@ if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "alpine" ]
         echo "source ~/git-prompt.sh" >> ~/.bashrc
         echo "source ~/git-completion.bash" >> ~/.bashrc
     fi
+    if [ ! -e ~/.bash_profile ]; then
+        ln -sfv ~/.bashrc ~/.bash_profile
+    fi
     echo ">>> Done"
     echo ""
 fi
