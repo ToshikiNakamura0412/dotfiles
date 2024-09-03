@@ -16,12 +16,12 @@
 ## Environment
 ### OS
 - Linux
-  - [WIP] alpine3.17
+  - [WIP] alpine
   - [WIP] debian
   - [WIP] fedora
   - [WIP] opensuse
-  - Ubuntu (Native)
-  - Ubuntu (WSL2)
+  - ubuntu (Native)
+  - ubuntu (WSL2)
 - macOS (Prerequisites: Homebrew, pip3)
 
 ### Architecture
