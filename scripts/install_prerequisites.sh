@@ -21,6 +21,11 @@ elif [ $OS_NAME = "alpine" ]; then
         zsh \
         curl \
         tmux
+elif [ $OS_NAME = "fedora" ]; then
+    sudo dnf check-update && sudo dnf install -y \
+        zsh \
+        curl \
+        tmux
 elif [ $OS_NAME = "mac" ]; then
     brew install \
         tmux

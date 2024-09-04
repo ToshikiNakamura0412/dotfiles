@@ -26,7 +26,7 @@ fi
 if [ ! -d ~/.config/git ]; then
     mkdir -p -v ~/.config/git
 fi
-if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "mac" ]; then
+if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "fedora" ] || [ $OS_NAME = "mac" ]; then
     ln -siv $SCRIPT_DIR/gitignore ~/.config/git/ignore
 elif [ $OS_NAME = "alpine" ]; then
     ln -sv $SCRIPT_DIR/gitignore ~/.config/git/ignore
