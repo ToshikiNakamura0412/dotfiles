@@ -22,7 +22,7 @@ elif [ $OS_NAME = "alpine" ]; then
         curl \
         tmux
 elif [ $OS_NAME = "fedora" ]; then
-    sudo dnf check-update && sudo dnf install -y \
+    sudo dnf check-update || true && sudo dnf install -y \
         zsh \
         curl \
         tmux
