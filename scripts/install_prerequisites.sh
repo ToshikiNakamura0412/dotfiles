@@ -26,6 +26,11 @@ elif [ $OS_NAME = "fedora" ]; then
         zsh \
         curl \
         tmux
+elif [ $OS_NAME = "opensuse-leap" ]; then
+    sudo zypper refresh && sudo zypper install -y --no-recommends \
+        zsh \
+        curl \
+        tmux
 elif [ $OS_NAME = "mac" ]; then
     brew install \
         tmux
