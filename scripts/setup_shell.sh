@@ -11,7 +11,7 @@ else
     exit 1
 fi
 
-if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "alpine" ] || [ $OS_NAME = "fedora" ] || [ $OS_NAME = "mac" ]; then
+if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "alpine" ] || [ $OS_NAME = "fedora" ] || [ $OS_NAME = "opensuse-leap" ] || [ $OS_NAME = "mac" ]; then
     echo ""
     echo "setting zsh... "
     git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
