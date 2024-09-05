@@ -1,17 +1,33 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-if [ "$(uname)" = "Linux" ]; then
-    source /etc/os-release
-    OS_NAME=$(echo $ID)
-elif [ "$(uname)" = "Darwin" ]; then
-    OS_NAME="mac"
-else
-    echo "This OS is not supported."
-    exit 1
-fi
+source $SCRIPT_DIR/common.bash
 
-if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "alpine" ] || [ $OS_NAME = "fedora" ] || [ $OS_NAME = "opensuse-leap" ] || [ $OS_NAME = "mac" ]; then
+function setup_bash() {
+    echo ""
+    echo "setting bash... "
+    if [[ -e ~/.bashrc ]]; then
+        source ~/.bashrc
+    fi
+    if ! type __git_ps1 &> /dev/null; then
+        curl -fLo ~/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+        curl -fLo ~/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
+        local target_strings=(
+            "source ~/git-prompt.sh"
+            "source ~/git-completion.bash"
+        )
+        delete_lines ~/.bashrc "${target_strings[@]}"
+        add_lines ~/.bashrc "${target_strings[@]}"
+    fi
+    if [[ ! -e ~/.bash_profile ]]; then
+        ln -sfv ~/.bashrc ~/.bash_profile
+    fi
+    echo ">>> Done"
+    echo ""
+}
+
+function setup_zsh() {
     echo ""
     echo "setting zsh... "
     git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -24,38 +40,43 @@ if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ] || [ $OS_NAME = "alpine" ]
     ~/.fzf/install
     echo ">>> Done"
     echo ""
+}
 
-    echo ""
-    echo "setting bash... "
-    if ! type __git_ps1 &> /dev/null; then
-        curl -fLo ~/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-        curl -fLo ~/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-        echo "source ~/git-prompt.sh" >> ~/.bashrc
-        echo "source ~/git-completion.bash" >> ~/.bashrc
+function setup_shell() {
+    echo "setting shell... "
+    if [ -d ~/.config/dotfiles ]; then
+        rm -rf ~/.config/dotfiles
     fi
-    if [ ! -e ~/.bash_profile ]; then
-        ln -sfv ~/.bashrc ~/.bash_profile
+    if [ ! -d ~/.config/dotfiles ]; then
+        mkdir -pv ~/.config/dotfiles
     fi
-    echo ">>> Done"
-    echo ""
-fi
+    ln -sfv $SCRIPT_DIR/common.bash ~/.config/dotfiles/common.bash
+    ln -sfv $SCRIPT_DIR/my_conf.bash ~/.config/dotfiles/my_conf.bash
 
-echo -n "setting shell... "
-if [ -e ~/.bashrc ]; then # bashrc
-    LOAD_COMMAND_COUNT=$(cat ~/.bashrc | grep dotfiles\/scripts\/my_conf\.bash | wc -l)
-    if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
-        echo "" >> ~/.bashrc
-        echo "# dotfiles" >> ~/.bashrc
-        echo "source $SCRIPT_DIR/my_conf.bash" >> ~/.bashrc
+    local target_strings=(
+        "# dotfiles",
+        "source ~/.config/dotfiles/my_conf.bash"
+    )
+    if [ -e ~/.bashrc ]; then
+        delete_lines ~/.bashrc "${target_strings[@]}"
+        add_lines ~/.bashrc "${target_strings[@]}"
     fi
-fi
-if [ -e ~/.zshrc ]; then # zshrc
-    LOAD_COMMAND_COUNT=$(cat ~/.zshrc | grep dotfiles\/scripts\/my_conf\.bash | wc -l)
-    if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
-        echo "" >> ~/.zshrc
-        echo "# dotfiles" >> ~/.zshrc
-        echo "source $SCRIPT_DIR/my_conf.bash" >> ~/.zshrc
+    if [ -e ~/.zshrc ]; then
+        delete_lines ~/.zshrc "${target_strings[@]}"
+        add_lines ~/.zshrc "${target_strings[@]}"
     fi
-fi
-echo "Done"
-echo ""
+    echo "Done"
+    echo ""
+}
+
+function main() {
+    check_os
+    local distro=$(get_distro)
+    if is_valid_distro ${distro}; then
+        setup_bash
+        setup_zsh
+    fi
+    setup_shell
+}
+
+main
