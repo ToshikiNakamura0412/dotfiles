@@ -33,8 +33,8 @@
 
 ## Installation
 ```bash
-git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
-~/dotfiles/install.bash
+git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git
+./dotfiles/install.bash
 ```
 
 ## Setup
