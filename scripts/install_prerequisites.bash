@@ -14,9 +14,9 @@ function install_prerequisites(){
     if [[ ${distro} == "ubuntu" ]] || [[ ${distro} == "debian" ]]; then
         sudo apt-get update && sudo apt-get install -y --no-install-recommends ${PKGS[@]}
     elif [[ ${distro} == "alpine" ]]; then
-        sudo apk update && sudo apk add ${PKGS[@]}
+        sudo apk update && sudo apk add --no-cache ${PKGS[@]}
     elif [[ ${distro} == "fedora" ]]; then
-        sudo dnf check-update || true && sudo dnf install -y ${PKGS[@]}
+        sudo dnf check-update || true && sudo dnf install -y --setopt=install_weak_deps=False ${PKGS[@]}
     elif [[ ${distro} == "opensuse-leap" ]]; then
         sudo zypper refresh && sudo zypper install -y --no-recommends ${PKGS[@]}
     elif [[ ${distro} == "mac" ]]; then
