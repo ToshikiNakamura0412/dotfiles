@@ -42,19 +42,19 @@ fi
 
 echo -n "setting shell... "
 if [ -e ~/.bashrc ]; then # bashrc
-    LOAD_COMMAND_COUNT=$(cat ~/.bashrc | grep dotfiles\/scripts\/my_conf\.sh | wc -l)
+    LOAD_COMMAND_COUNT=$(cat ~/.bashrc | grep dotfiles\/scripts\/my_conf\.bash | wc -l)
     if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
         echo "" >> ~/.bashrc
         echo "# dotfiles" >> ~/.bashrc
-        echo "source $SCRIPT_DIR/my_conf.sh" >> ~/.bashrc
+        echo "source $SCRIPT_DIR/my_conf.bash" >> ~/.bashrc
     fi
 fi
 if [ -e ~/.zshrc ]; then # zshrc
-    LOAD_COMMAND_COUNT=$(cat ~/.zshrc | grep dotfiles\/scripts\/my_conf\.sh | wc -l)
+    LOAD_COMMAND_COUNT=$(cat ~/.zshrc | grep dotfiles\/scripts\/my_conf\.bash | wc -l)
     if [ $LOAD_COMMAND_COUNT -eq 0 ]; then
         echo "" >> ~/.zshrc
         echo "# dotfiles" >> ~/.zshrc
-        echo "source $SCRIPT_DIR/my_conf.sh" >> ~/.zshrc
+        echo "source $SCRIPT_DIR/my_conf.bash" >> ~/.zshrc
     fi
 fi
 echo "Done"
