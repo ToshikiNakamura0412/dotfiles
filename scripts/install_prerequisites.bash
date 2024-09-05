@@ -1,41 +1,35 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-if [ "$(uname)" = "Linux" ]; then
-    source /etc/os-release
-    OS_NAME=$(echo $ID)
-elif [ "$(uname)" = "Darwin" ]; then
-    OS_NAME="mac"
-else
-    echo "This OS is not supported."
-    exit 1
-fi
+source ${SCRIPT_DIR}/common.bash
 
-if [ $OS_NAME = "ubuntu" ] || [ $OS_NAME = "debian" ]; then
-    sudo apt-get update && sudo apt-get install -y --no-install-recommends \
-        zsh \
-        curl \
-        tmux
-elif [ $OS_NAME = "alpine" ]; then
-    sudo apk update && sudo apk add \
-        zsh \
-        curl \
-        tmux
-elif [ $OS_NAME = "fedora" ]; then
-    sudo dnf check-update || true && sudo dnf install -y \
-        zsh \
-        curl \
-        tmux
-elif [ $OS_NAME = "opensuse-leap" ]; then
-    sudo zypper refresh && sudo zypper install -y --no-recommends \
-        zsh \
-        curl \
-        tmux
-elif [ $OS_NAME = "mac" ]; then
-    brew install \
-        tmux
-fi
+PKGS=(
+    "zsh"
+    "curl"
+    "tmux"
+)
 
-# Vim/Neovim
-$SCRIPT_DIR/../nvim/configs/basic/install.sh
-$SCRIPT_DIR/../nvim/install.sh
+function install(){
+    local distro=$(get_distro)
+    if [[ ${distro} == "ubuntu" ]] || [[ ${distro} == "debian" ]]; then
+        sudo apt-get update && sudo apt-get install -y --no-install-recommends ${PKGS[@]}
+    elif [[ ${distro} == "alpine" ]]; then
+        sudo apk update && sudo apk add ${PKGS[@]}
+    elif [[ ${distro} == "fedora" ]]; then
+        sudo dnf check-update || true && sudo dnf install -y ${PKGS[@]}
+    elif [[ ${distro} == "opensuse-leap" ]]; then
+        sudo zypper refresh && sudo zypper install -y --no-recommends ${PKGS[@]}
+    elif [[ ${distro} == "mac" ]]; then
+        brew install \
+            tmux
+    fi
+    ${SCRIPT_DIR}/../nvim/configs/basic/install.sh
+    ${SCRIPT_DIR}/../nvim/install.sh
+}
+
+function main() {
+    check_os
+    install
+}
+
+main

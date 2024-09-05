@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-source $SCRIPT_DIR/common.bash
+source ${SCRIPT_DIR}/common.bash
 
 function setup_bash() {
     echo ""
@@ -35,8 +35,8 @@ function setup_zsh() {
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ln -sfv $SCRIPT_DIR/../zsh/zshrc ~/.zshrc
-    ln -sfv $SCRIPT_DIR/../zsh/p10k.zsh ~/.p10k.zsh
+    ln -sfv ${SCRIPT_DIR}/../zsh/zshrc ~/.zshrc
+    ln -sfv ${SCRIPT_DIR}/../zsh/p10k.zsh ~/.p10k.zsh
     ~/.fzf/install
     echo ">>> Done"
     echo ""
@@ -50,8 +50,8 @@ function setup_shell() {
     if [ ! -d ~/.config/dotfiles ]; then
         mkdir -pv ~/.config/dotfiles
     fi
-    ln -sfv $SCRIPT_DIR/common.bash ~/.config/dotfiles/common.bash
-    ln -sfv $SCRIPT_DIR/my_conf.bash ~/.config/dotfiles/my_conf.bash
+    ln -sfv ${SCRIPT_DIR}/common.bash ~/.config/dotfiles/common.bash
+    ln -sfv ${SCRIPT_DIR}/my_conf.bash ~/.config/dotfiles/my_conf.bash
 
     local target_strings=(
         "# dotfiles",
