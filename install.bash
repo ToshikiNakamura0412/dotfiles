@@ -2,21 +2,31 @@
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-echo ""
-echo "========="
-echo " install"
-echo "========="
-echo ""
-$SCRIPT_DIR/scripts/install_prerequisites.bash
+function install_prerequisites() {
+    echo ""
+    echo "======================="
+    echo " install prerequisites"
+    echo "======================="
+    echo ""
+    ${SCRIPT_DIR}/scripts/install_prerequisites.bash
+}
 
-echo ""
-echo "======="
-echo " setup"
-echo "======="
-echo ""
-$SCRIPT_DIR/scripts/setup_git.bash
-$SCRIPT_DIR/scripts/setup_shell.bash
-$SCRIPT_DIR/scripts/setup_tmux.bash
+function setup() {
+    echo ""
+    echo "======="
+    echo " setup"
+    echo "======="
+    echo ""
+    ${SCRIPT_DIR}/scripts/setup_git.bash
+    ${SCRIPT_DIR}/scripts/setup_shell.bash
+    ${SCRIPT_DIR}/scripts/setup_tmux.bash
+}
 
-echo ""
-echo "please set your terminal font as 'Hack Nerd Font Regular'"
+function main() {
+    install_prerequisites
+    setup
+    echo ""
+    echo "please set your terminal font as 'Hack Nerd Font Regular'"
+}
+
+main
