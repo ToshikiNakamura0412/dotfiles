@@ -3,13 +3,13 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 source ${SCRIPT_DIR}/common.bash
 
-DOTFILES_CONFIG_DIR="~/.config/dotfiles"
+DOTFILES_CONFIG_DIR=~/.config/dotfiles
 
 function create_dotfiles_dir() {
-    if [ -d ~/.config/dotfiles ]; then
+    if [ -d ${DOTFILES_CONFIG_DIR} ]; then
         rm -rf ${DOTFILES_CONFIG_DIR}
     fi
-    if [ ! -d ~/.config/dotfiles ]; then
+    if [ ! -d ${DOTFILES_CONFIG_DIR} ]; then
         mkdir -pv ${DOTFILES_CONFIG_DIR}
     fi
 }
