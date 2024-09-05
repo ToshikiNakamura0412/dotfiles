@@ -9,7 +9,7 @@ PKGS=(
     "tmux"
 )
 
-function install(){
+function install_prerequisites(){
     local distro=$(get_distro)
     if [[ ${distro} == "ubuntu" ]] || [[ ${distro} == "debian" ]]; then
         sudo apt-get update && sudo apt-get install -y --no-install-recommends ${PKGS[@]}
@@ -29,7 +29,7 @@ function install(){
 
 function main() {
     check_os
-    install
+    install_prerequisites
 }
 
 main
