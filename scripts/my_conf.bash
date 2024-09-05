@@ -3,7 +3,7 @@ if [[ -e ~/.config/dotfiles/common.bash ]]; then
 else
   echo -e "\e[31mError: ~/.config/dotfiles/common.bash not found\e[m"
   echo "Please run install.bash"
-  exit 1
+  return
 fi
 
 check_os
