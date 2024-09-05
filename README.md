@@ -16,11 +16,12 @@
 ## Environment
 ### OS
 - Linux
+  - alpine
   - debian
-  - ubuntu (Native, WSL2)
+  - fedora
+  - opensuse (leap)
+  - ubuntu
 - macOS (Prerequisites: Homebrew, pip3)
-
-WIP : alpine, fedora, opensuse
 
 ### Architecture
 - x86_64
@@ -33,7 +34,7 @@ WIP : alpine, fedora, opensuse
 ## Installation
 ```bash
 git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git ~/dotfiles
-~/dotfiles/install.sh
+~/dotfiles/install.bash
 ```
 
 ## Setup
@@ -47,11 +48,11 @@ p10k configure
 If you want to change the prefix key and the theme, please execute the following:
 ```bash
 cd dotfiles/scripts/
-./change_tmux_conf.sh <prefix_key> <tmux_power_theme>
+./setup_tmux.bash <prefix_key> <tmux_power_theme> [with_setup (optional)]
 ```
 Show the help:
 ```bash
-./change_tmux_conf.sh -h
+./setup_tmux.bash -h
 ```
 
 ### plugin
