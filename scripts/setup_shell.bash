@@ -3,6 +3,17 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 source ${SCRIPT_DIR}/common.bash
 
+DOTFILES_CONFIG_DIR=~/.config/dotfiles
+
+function create_dotfiles_dir() {
+    if [ -d ${DOTFILES_CONFIG_DIR} ]; then
+        rm -rf ${DOTFILES_CONFIG_DIR}
+    fi
+    if [ ! -d ${DOTFILES_CONFIG_DIR} ]; then
+        mkdir -pv ${DOTFILES_CONFIG_DIR}
+    fi
+}
+
 function setup_bash() {
     echo ""
     echo "setting bash... "
@@ -10,12 +21,12 @@ function setup_bash() {
         source ~/.bashrc
     fi
     if ! type __git_ps1 &> /dev/null; then
-        curl -fLo ~/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-        curl -fLo ~/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+        curl -fLo ${DOTFILES_CONFIG_DIR}/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+        curl -fLo ${DOTFILES_CONFIG_DIR}/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
         local target_strings=(
-            "source ~/git-prompt.sh"
-            "source ~/git-completion.bash"
+            "source ${DOTFILES_CONFIG_DIR}/git-prompt.sh"
+            "source ${DOTFILES_CONFIG_DIR}/git-completion.bash"
         )
         delete_lines ~/.bashrc "${target_strings[@]}"
         add_lines ~/.bashrc "${target_strings[@]}"
@@ -44,18 +55,12 @@ function setup_zsh() {
 
 function setup_shell() {
     echo "setting shell... "
-    if [ -d ~/.config/dotfiles ]; then
-        rm -rf ~/.config/dotfiles
-    fi
-    if [ ! -d ~/.config/dotfiles ]; then
-        mkdir -pv ~/.config/dotfiles
-    fi
-    ln -sfv ${SCRIPT_DIR}/common.bash ~/.config/dotfiles/common.bash
-    ln -sfv ${SCRIPT_DIR}/my_conf.bash ~/.config/dotfiles/my_conf.bash
+    ln -sfv ${SCRIPT_DIR}/common.bash ${DOTFILES_CONFIG_DIR}/common.bash
+    ln -sfv ${SCRIPT_DIR}/my_conf.bash ${DOTFILES_CONFIG_DIR}/my_conf.bash
 
     local target_strings=(
-        "# dotfiles",
-        "source ~/.config/dotfiles/my_conf.bash"
+        "# dotfiles"
+        "source ${DOTFILES_CONFIG_DIR}/my_conf.bash"
     )
     if [ -e ~/.bashrc ]; then
         delete_lines ~/.bashrc "${target_strings[@]}"
@@ -71,6 +76,7 @@ function setup_shell() {
 
 function main() {
     check_os
+    create_dotfiles_dir
     local distro=$(get_distro)
     if is_valid_distro ${distro}; then
         setup_bash
