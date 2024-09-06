@@ -17,6 +17,7 @@
 ### OS
 - Linux
   - alpine
+  - arch
   - centos (stream)
   - debian
   - fedora
