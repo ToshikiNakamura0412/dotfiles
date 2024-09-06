@@ -1,5 +1,7 @@
 DISTROS=(
     "alpine"
+    "arch"
+    "centos"
     "debian"
     "fedora"
     "opensuse-leap"
