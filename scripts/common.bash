@@ -54,12 +54,16 @@ function delete_lines() {
         echo -e "\e[31mError: target_strings is empty\e[m"
         return
     fi
-    local search_string=$(echo ${target_strings[-1]} | sed 's/\\//g' | sed 's/^ *//g')
+    local search_string=$(echo ${target_strings[${#target_strings[@]}-1]} | sed 's/\\//g' | sed 's/^ *//g')
 
     if grep -Fq "${search_string}" ${target_file}; then
         while grep -Fq "${search_string}" ${target_file}; do
             target_line=$(grep -Fn "${search_string}" ${target_file} | cut -d ":" -f 1 | head -n 1)
-            sed -i "$((target_line - ${#target_strings[@]} + 1)),$((target_line))d" ${target_file}
+            if [[ $(get_distro) == "mac" ]]; then
+                sed -i '' "$((target_line - ${#target_strings[@]} + 1)),$((target_line))d" ${target_file}
+            else
+                sed -i "$((target_line - ${#target_strings[@]} + 1)),$((target_line))d" ${target_file}
+            fi
         done
     else
         ERROR_COUNT_OF_DELETE_LINES=$((ERROR_COUNT_OF_DELETE_LINES + 1))
