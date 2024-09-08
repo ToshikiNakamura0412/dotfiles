@@ -122,3 +122,5 @@ source $ZSH/oh-my-zsh.sh
 if [[ -f ~/.bash_aliases ]]; then
   source ~/.bash_aliases
 fi
+# dotfiles
+source /home/user/.config/dotfiles/my_conf.bash
