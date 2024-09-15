@@ -3,6 +3,19 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 source ${SCRIPT_DIR}/common.bash
 
+function install_diff_highlight() {
+    if [[ ! -e /usr/share/doc/git/contrib/diff-highlight/diff-highlight ]]; then
+        echo ""
+        echo "installing diff-highlight..."
+        sudo git clone --single-branch --depth 1 https://github.com/git/git.git /opt/git
+        cd /opt/git/contrib/diff-highlight && sudo make
+        sudo ln -sv /opt/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+        git config --global core.pager "diff-highlight | less"
+        echo ">>> Done"
+        echo ""
+    fi
+}
+
 function setup_git() {
     local distro=$(get_distro)
 
@@ -25,6 +38,8 @@ function setup_git() {
     fi
     echo ">>> Done"
     echo ""
+
+    install_diff_highlight
 }
 
 function main() {

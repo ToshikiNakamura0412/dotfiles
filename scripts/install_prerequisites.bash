@@ -7,11 +7,13 @@ PKGS=(
     "zsh"
     "curl"
     "tmux"
+    "less"
 )
 PKGS2=(
     "zsh"
     "curl-minimal"
     "tmux"
+    "less"
 )
 
 function install_prerequisites(){
