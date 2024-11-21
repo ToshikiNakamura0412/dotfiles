@@ -97,12 +97,15 @@ If you want to enable C/C++ completion for ROS1, please execute the following:
 # - add following paths
 #   - /opt/ros/<ROS DISTRO>/include
 #   - <target package>/include
-cd <target package>
+roscd <target package>
 create_simple_compile_flags
 
-# build and enable completion related to target package
-cd <target package>
-cbt_export_compile_commands
+# build and enable completion of target package
+roscd <target package>
+cbt
+
+# build and enable completion of all packages
+cb
 ```
 
 ## Troubleshooting
