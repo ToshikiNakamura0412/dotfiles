@@ -27,10 +27,12 @@ elif [[ ${DISTRO} == "ubuntu" ]]; then
 
   # Set alias commands for ROS
   if [[ -d /opt/ros ]]; then
-    alias cw='cd $ROS_WORKSPACE'
-    alias cs='cd $ROS_WORKSPACE/src'
+    function cw() {
+      cd ${ROS_WORKSPACE}
+    }
+    alias cs='cd ${ROS_WORKSPACE}/src'
 
-    if [[ $ROS_VERSION -eq 1 ]]; then
+    if [[ ${ROS_VERSION} -eq 1 ]]; then
       # Set alias commands for ROS completion and build
       function create_simple_compile_flags() {
         echo "-I/opt/ros/${ROS_DISTRO}/include" > compile_flags.txt
