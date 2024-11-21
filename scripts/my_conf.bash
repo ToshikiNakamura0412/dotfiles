@@ -47,7 +47,7 @@ elif [[ ${DISTRO} == "ubuntu" ]]; then
         done
       }
       function cb() {
-        catkin build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        cw && catkin build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
         ln-compile-commands-json
       }
       function cbt() {
