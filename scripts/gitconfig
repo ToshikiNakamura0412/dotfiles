@@ -12,3 +12,5 @@
     ps  = push
     psf = push -f
     s   = status
+[url "git@github.com:"]
+    insteadOf = https://github.com/
