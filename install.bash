@@ -1,35 +1,63 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(cd $(dirname $0); pwd)
+DOTFILES_INSTALL_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-function install_prerequisites() {
+DOTFILES_SETUP_ONLY=false
+if [[ "--setup-only" == "$1" ]]; then
+  DOTFILES_SETUP_ONLY=true
+fi
+
+dotfiles::install_prerequisites() {
+  local script_dir="${DOTFILES_INSTALL_SCRIPT_DIR}"
+
   echo ""
-  echo "======================="
-  echo " install prerequisites"
-  echo "======================="
+  echo "[INFO] ======================="
+  echo "[INFO]  install prerequisites"
+  echo "[INFO] ======================="
   echo ""
-  ${SCRIPT_DIR}/scripts/install_prerequisites.bash
+  "${script_dir}/scripts/install_prerequisites.bash"
 }
 
-function setup() {
+dotfiles::setup() {
+  local script_dir="${DOTFILES_INSTALL_SCRIPT_DIR}"
+  local setup_only="${DOTFILES_SETUP_ONLY}"
+
   echo ""
-  echo "======="
-  echo " setup"
-  echo "======="
+  echo "[INFO] ======="
+  echo "[INFO]  setup"
+  echo "[INFO] ======="
   echo ""
-  ${SCRIPT_DIR}/scripts/setup_git.bash
-  ${SCRIPT_DIR}/scripts/setup_shell.bash
-  ${SCRIPT_DIR}/scripts/setup_tmux.bash
-  if [[ -e /usr/bin/nvim ]]; then
-    sudo ln -sfv /usr/bin/nvim /usr/bin/vim
+  "${script_dir}/scripts/setup_shell.bash"
+  "${script_dir}/scripts/setup_tmux.bash"
+
+  if [[ "${setup_only}" == true ]]; then
+    "${script_dir}/scripts/setup_git.bash" --no-install
+    source "${script_dir}/nvim/configs/basic/install.sh"
+    vim_setup
+  else
+    "${script_dir}/scripts/setup_git.bash"
+    if [[ -e /usr/bin/nvim ]]; then
+      sudo ln -sfv /usr/bin/nvim /usr/bin/vim
+    fi
   fi
 }
 
-function main() {
-  install_prerequisites
-  setup
+dotfiles::install_main() {
+  local setup_only="${DOTFILES_SETUP_ONLY}"
+
+  if [[ "${setup_only}" == false ]]; then
+    dotfiles::install_prerequisites
+  fi
+  dotfiles::setup
   echo ""
-  echo "please set your terminal font as 'Hack Nerd Font Regular'"
+  echo "[INFO] please set your terminal font as 'Hack Nerd Font Regular'"
 }
 
-main
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+  if [[ "--help" == "$1" || "-h" == "$1" ]]; then
+    echo "Usage: $0 [--setup-only]"
+    echo "  --setup-only: Only run the setup scripts without installing prerequisites."
+    exit 0
+  fi
+  dotfiles::install_main
+fi
