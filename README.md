@@ -34,9 +34,10 @@
 - zsh
 
 ## Installation
+- If you want to setup only without installing prerequisites, please use `--setup-only` option.
 ```bash
 git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git
-./dotfiles/install.bash
+./dotfiles/install.bash [--setup-only]
 ```
 
 ## Setup
