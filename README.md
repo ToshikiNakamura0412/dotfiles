@@ -35,6 +35,7 @@
 
 ## Installation
 - If you want to setup only without installing prerequisites, please use `--setup-only` option.
+  - Prerequisites: curl
 ```bash
 git clone --recursive https://github.com/ToshikiNakamura0412/dotfiles.git
 ./dotfiles/install.bash [--setup-only]
@@ -60,10 +61,10 @@ Show the help:
 
 ### plugin
 #### nvim
-Please set executable.command path for `jedi-language-server`
-```bash
-nvim ~/.config/nvim/coc-settings.json
-```
+- If you want to enable Github Copilot, please execute the following in Neovim:
+  ```
+  :Copilot setup
+  ```
 
 ## Update
 ```bash
