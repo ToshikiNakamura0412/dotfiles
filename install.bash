@@ -36,8 +36,9 @@ dotfiles::setup() {
     vim_setup
   else
     "${script_dir}/scripts/setup_git.bash"
-    if [[ -e /usr/bin/nvim ]]; then
-      sudo ln -sfv /usr/bin/nvim /usr/bin/vim
+    "${script_dir}/nvim/scripts/setup_nvim.sh"
+    if [[ -e "$HOME/.local/bin/nvim" ]]; then
+      ln -sfv $HOME/.local/bin/nvim $HOME/.local/bin/vim
     fi
   fi
 }

@@ -35,7 +35,7 @@ function install_prerequisites(){
             tmux
     fi
     ${SCRIPT_DIR}/../nvim/configs/basic/install.sh
-    ${SCRIPT_DIR}/../nvim/install.sh
+    ${SCRIPT_DIR}/../nvim/scripts/install_prerequisites.sh
 }
 
 function main() {
