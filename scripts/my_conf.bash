@@ -24,6 +24,10 @@ if [[ ${DISTRO} == "alpine" ]]; then
   alias l='ls -la'
 
 elif [[ ${DISTRO} == "ubuntu" ]]; then
+  function ll() {
+    ls -lh --color=auto "$@"
+  }
+  export XAUTHORITY=${XAUTHORITY:-$HOME/.Xauthority}
 
   # Set alias commands for ROS
   if [[ -d /opt/ros ]]; then
