@@ -31,6 +31,12 @@ elif [[ ${DISTRO} == "ubuntu" ]]; then
 
   # Set alias commands for ROS
   if [[ -d /opt/ros ]]; then
+    if [[ -n "$BASH_VERSION" ]]; then
+      source /opt/ros/noetic/setup.bash 2> /dev/null
+    else
+      source /opt/ros/noetic/setup.zsh 2> /dev/null
+    fi
+
     function cw() {
       cd ${ROS_WORKSPACE}
     }
