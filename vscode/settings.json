@@ -1,0 +1,333 @@
+{
+  "workbench.colorTheme": "Monokai",
+  "workbench.iconTheme": "vscode-icons",
+  "editor.fontLigatures": true,
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc -fexec-charset=CP932 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "python -u",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket",
+    "scheme": "csi -script",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runhaskell",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+  },
+  "code-runner.runInTerminal": true,
+  "terminal.integrated.fontSize": 15,
+  "debug.console.fontSize": 18,
+  "scm.inputFontSize": 18,
+  "editor.fontSize": 18,
+  "editor.rulers": [
+    120
+  ],
+  "markdown.preview.fontSize": 18,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "editor.renderWhitespace": "all",
+  "editor.fontWeight": 1,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "python.autoComplete.extraPaths": [
+    "C:\\Package\\Anaconda3\\Lib\\site-packages"
+  ],
+  "python.languageServer": "Jedi",
+  "python.analysis.extraPaths": [
+    "$HOME/.local/lib/python3.8/site-packages"
+  ],
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "[python]": {
+    "editor.wordBasedSuggestions": "off",
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "black-formatter.args": [
+    "--line-length",
+    "79"
+  ],
+  "cmake.configureOnOpen": true,
+  // "bracketPairColorizer.depreciation-notice": false,
+  "terminal.integrated.fontFamily": "Hack Nerd Font",
+  "json.schemas": [],
+  "vsicons.dontShowNewVersionMessage": true,
+  // bracket settings
+  "editor.guides.bracketPairs": true,
+  "editor.bracketPairColorization.enabled": true,
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "debug.onTaskErrors": "abort",
+  "C_Cpp.default.cppStandard": "c++17",
+  "editor.renderControlCharacters": true,
+  "update.showReleaseNotes": false,
+  "redhat.telemetry.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "vscode-neovim.highlightGroups.highlights": {
+    "Directory": "vim",
+    "IncSearch": {
+      "backgroundColor": "theme.editor.findMatchBackground",
+      "borderColor": "theme.editor.findMatchBorder"
+    },
+    "Search": {
+      "backgroundColor": "theme.editor.findMatchHighlightBackground",
+      "borderColor": "theme.editor.findMatchHighlightBorder"
+    },
+    "Visual": {
+      "backgroundColor": "theme.editor.selectionBackground"
+    },
+    "Conceal": "vim",
+    "Substitute": "vim"
+  },
+  // ---------- Vim Settings ---------
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // ;でコマンド入力
+      "before": [
+        ";"
+      ],
+      "after": [
+        ":"
+      ]
+    },
+    {
+      // 行頭にカーソルを移動
+      "before": [
+        "<Space>",
+        "h"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      // 行末にカーソルを移動
+      "before": [
+        "<Space>",
+        "l"
+      ],
+      "after": [
+        "$"
+      ]
+    },
+    {
+      // 右のタブに移動
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
+    },
+    {
+      // 左のタブに移動
+      "before": [
+        "<C-p>"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    },
+    {
+      "before": [
+        "<C-d>"
+      ],
+      "after": [
+        "2",
+        "0",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "<Esc>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "<C-w>",
+        "z"
+      ],
+      "commands": [
+        "workbench.action.toggleMaximizeEditorGroup"
+      ]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      // 行途中で次の行に新規挿入
+      "before": [
+        "<C-o>"
+      ],
+      "after": [
+        "<C-o>",
+        "o"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      // 行頭にカーソルを移動
+      "before": [
+        "<Space>",
+        "h"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      // 行末にカーソルを移動
+      "before": [
+        "<Space>",
+        "l"
+      ],
+      "after": [
+        "$"
+      ]
+    }
+  ],
+  // 検索で同じ文字列に色がつくやつ
+  "vim.hlsearch": true,
+  // 検索時には大文字小文字を無視
+  "vim.ignorecase": true,
+  // 入力中でもマッチしたものを表示してくれる
+  "vim.incsearch": true,
+  // 行の最初と最後でのカーソル移動時，行送りできるようにする
+  "vim.whichwrap": "h,l,<,>,[,]",
+  // クリップボードをレジスタとして使う
+  "vim.useSystemClipboard": true,
+  // ---------- end of Vim Settings ----------
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "settingsSync.ignoredSettings": [
+    "-C_Cpp.clang_format_path"
+  ],
+  "editor.tabSize": 2,
+  "C_Cpp.default.cStandard": "c17",
+  "cmake.automaticReconfigure": false,
+  "cmake.showOptionsMovedNotification": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-iot.vscode-ros"
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "terminal.integrated.commandsToSkipShell": [
+    "github.copilot.terminal.suggestCommand",
+    "matlab.interrupt",
+    "-workbench.action.quickOpen",
+    "-workbench.action.terminal.focusFind"
+  ],
+  // ---------- LaTeX Workshop ----------
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.latex.outDir": "out",
+  "latex-workshop.docker.enabled": true,
+  "latex-workshop.docker.image.latex": "texlive/texlive:latest",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk",
+      "tools": [
+        "latexmk"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-silent",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    }
+  ],
+  "editor.minimap.enabled": false,
+  "editor.unicodeHighlight.allowedCharacters": {
+    "を": true,
+    "素": true
+  },
+  "editor.unicodeHighlight.includeComments": false,
+  "editor.unicodeHighlight.includeStrings": false,
+  "github.copilot.enable": {
+    "plaintext": true,
+    "markdown": true
+  },
+  "vscodeGoogleTranslate.preferredLanguage": "Japanese",
+  "remote.autoForwardPortsSource": "hybrid",
+  "doxdocgen.file.fileOrder": [
+    "file",
+    "author",
+    "brief",
+    "copyright"
+  ],
+  "doxdocgen.generic.authorTag": "@author Toshiki Nakamura",
+  "files.insertFinalNewline": true,
+  "files.autoSave": "afterDelay",
+  "editor.wordWrapColumn": 120,
+  "workbench.startupEditor": "none",
+  "security.workspace.trust.untrustedFiles": "open",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "remote.SSH.remotePlatform": {
+    "mac": "macOS"
+  },
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "github.copilot.nextEditSuggestions.enabled": true
+}
